@@ -1,0 +1,19 @@
+---
+title: "to do"
+author: "The Nature Conservancy's LANDFIRE team"
+date: "7/6/2021"
+output: html_document
+---
+
+To do list:
+
+* make sure that legend/people information is included
+* insert map (include treatment shapes?)
+* links to raw and clean data?
+* make charts:
+    * Pines – by plot.  Showing number of stems over time within each size class:  seedlings, A-J.
+    * From herbaceous:
+        * Wiregrass/perennial grass over by plot.   
+        * %PG from herbaceous data.  One graph for each plot with mean of quadrats 1-20 – add confidence interval?
+    * any canopy charts?
+* insert LANDFIRE page (from ABRPwfArchive)

@@ -8,4 +8,29 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+Contains the cleaned long-term monitoring datasets, basic exploratory charts, LANDFIRE maps and documentation for the [Apalachicola Bluffs and Ravines Preserve](https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/apalachicola-bluffs-and-ravines-preserve/).  
+
+## Goals
+The overall goal of this project was to organize and explore the long-term monitoring data so that the Florida chapter could:
+
+* assess future monitoring needs
+* explore effectiveness of treatments
+* be set up for efficient future data recording
+
+Plus have LANDFIRE data-based maps for landscape context.
+
+## People who contributed to current work
+
+* Beatiz Pace-Aldana
+* Chaz Oliver
+* David Printiss
+* Kris Serbesoff-King
+* Laura Roncal
+* Randy Swaty
+
+## People who contributed to data collection (from datasheets; may not be inclusive)
+
+* Doria and other person who did previous analyis (link to)
+
+
+

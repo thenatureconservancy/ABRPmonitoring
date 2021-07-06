@@ -3,8 +3,10 @@ output_dir: ../docs
 navbar:
   title: ABRPweb
   left:
-  - text: Home
+  - text: This site
     href: index.html
+  - text: Pine
+    href: pine.html
   - text: About
     href: about.html
   - text: License
@@ -17,5 +19,5 @@ output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: cosmo
+    theme: flatly
     highlight: textmate

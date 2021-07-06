@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="rswaty" />
 
+<meta name="date" content="2021-07-06" />
 
-<title>Home</title>
+<title>pine</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,6 +30,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -227,6 +232,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -234,6 +302,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -280,7 +358,9 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">pine</h1>
+<h4 class="author">rswaty</h4>
+<h4 class="date">2021-07-06</h4>
 
 </div>
 
@@ -329,7 +409,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -385,100 +465,25 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML (<code>docs/index.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rswaty/ABRPweb/e9d844e8aab30cf4526582ec84724ee4e2ea299d/docs/index.html" target="_blank">e9d844e</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2021-06-16
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rswaty/ABRPweb/blob/d2309817d3a9f272d8ba63ca56f88edb98092915/analysis/index.Rmd" target="_blank">d230981</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2021-06-16
-</td>
-<td>
-Start workflowr project.
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
 </div>
-<p>Contains the cleaned long-term monitoring datasets, basic exploratory charts, LANDFIRE maps and documentation for the <a href="https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/apalachicola-bluffs-and-ravines-preserve/">Apalachicola Bluffs and Ravines Preserve</a>.</p>
-<div id="goals" class="section level2">
-<h2>Goals</h2>
-<p>The overall goal of this project was to organize and explore the long-term monitoring data so that the Florida chapter could:</p>
+<div id="pine-data" class="section level2">
+<h2>Pine Data</h2>
+<div id="data-cleaning-notes" class="section level3">
+<h3>Data cleaning notes</h3>
 <ul>
-<li>assess future monitoring needs</li>
-<li>explore effectiveness of treatments</li>
-<li>be set up for efficient future data recording</li>
-</ul>
-<p>Plus have LANDFIRE data-based maps for landscape context.</p>
-</div>
-<div id="people-who-contributed-to-current-work" class="section level2">
-<h2>People who contributed to current work</h2>
-<ul>
-<li>Beatiz Pace-Aldana</li>
-<li>Chaz Oliver</li>
-<li>David Printiss</li>
-<li>Kris Serbesoff-King</li>
-<li>Laura Roncal</li>
-<li>Randy Swaty</li>
+<li>worked from data delivered by Beatriz (INSERT LINK AND NAME OF FILE)</li>
+<li>added “B-P” column, concatenated BU and Plot numbers to generate unique value for charts</li>
+<li>added MONYEAR and LASTBURNYEAR columns for charts (also, some burns only had years recorded). Used “text to columns” tool in Excel with “/” as the delimeter to create new YEAR-based columns where possible. Manually entered years for many records.</li>
+<li>Bull-dozing happened (instead of fire?) for MONYEAR 2007, B-Ps 7_8, 7_7, 7_6, and 7_4. Did not transfer this information to LASTBURNYEAR (but is is in LASTBURN column). Swaty did not want to mix numerical and text data types in the LASTBURNYEAR column.</li>
+<li>B-Ps 7_3, 7_5 was missing MONDATE information for 2019. Swaty manually entered “2019” based on exploring neighboring plots in the dataset.</li>
 </ul>
 </div>
-<div id="people-who-contributed-to-data-collection-from-datasheets-may-not-be-inclusive" class="section level2">
-<h2>People who contributed to data collection (from datasheets; may not be inclusive)</h2>
-<ul>
-<li>Doria and other person who did previous analyis (link to)</li>
-</ul>
 </div>
 
 
@@ -495,6 +500,8 @@ footer is added to webpages before the MathJax javascript. -->
 </script>
 
 
+</div>
+</div>
 
 </div>
 
@@ -527,6 +534,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
