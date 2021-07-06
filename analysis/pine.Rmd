@@ -1,5 +1,5 @@
 ---
-title: "pine"
+title: "Pine"
 author: "rswaty"
 date: "2021-07-06"
 output: workflowr::wflow_html
@@ -15,5 +15,172 @@ editor_options:
 * added MONYEAR and LASTBURNYEAR columns for charts (also, some burns only had years recorded).  Used "text to columns" tool in Excel with "/" as the delimeter to create new YEAR-based columns where possible.  Manually entered years for many records.
 * Bull-dozing happened (instead of fire?) for MONYEAR 2007, B-Ps 7_8, 7_7, 7_6, and 7_4.  Did not transfer this information to LASTBURNYEAR (but is is in LASTBURN column). Swaty did not want to mix numerical and text data types in the LASTBURNYEAR column.
 * B-Ps 7_3, 7_5 was missing MONDATE information for 2019.  Swaty manually entered "2019" based on exploring neighboring plots in the dataset.
+* Found many typos and case issues (e.g., "Seedling" instead of "SEEDLING")
+
+```{r pineSetup, message=FALSE, warning=FALSE, include=FALSE}
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce)
+theme_set(theme_bw())
+```
+
+
+### Data Table
+The cleaned Pine data is served up below.
+
+<br>
+
+```{r pineDT, echo=FALSE, message=FALSE, warning=FALSE}
+pine <- read_csv("data/pine.csv")
+
+datatable(pine)
+```
+<br>
+
+### About the data
+
+
+```{r obsYear, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+yearObs <-
+pine %>%
+  count(MONYEAR)
+
+yearObsChart <-
+  yearObs %>%
+  ggplot(aes(x = MONYEAR, y = n)) +
+  geom_line(size = 1.5) +
+  labs(x = "Year",
+       y = "Number of rows",
+       title = "Number of observations per year",
+       caption = "Data from Florida Chapter")  +
+
+
+  #Adjust the axes
+  theme(plot.title = element_text(face="bold", size =14),
+        axis.title.x = element_text(face="bold", size = 12),
+        axis.title.y = element_text(face="bold", size = 12),
+        legend.title = element_text(face="bold", size = 12))
+
+
+yearObsChart
+```
+
+
+## Number of pine stems per plot variable with high of 512 (BP 7_8, 2017)
+
+<br>
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+pine %>%
+  mutate(MONYEAR = as.character(MONYEAR))
+```
+
+
+```{r numStems, echo=FALSE, message=FALSE, warning=FALSE}
+
+stemsExplore <-
+  pine %>%
+  ggplot(aes(x = MONYEAR, y = STEMS, group = MONYEAR, fill = MONYEAR)) +
+  geom_boxplot(position = position_dodge(width = 0.9)) +
+  geom_point(position = position_jitterdodge(seed = 1, dodge.width = 0.9)) +
+  theme_bw() +
+  labs(x = "Year",
+       y = "Number of stems",
+       title = "Total number of stems per plot",
+       subtitle = "Dots jittered so that they would not totally overlap",
+       caption = "Data from Florida Chapter")  +
+
+  #Adjust the axes, remove legend
+  theme(legend.position = "none",
+        plot.title = element_text(face="bold", size =14),
+        axis.title.x = element_text(face="bold", size = 12),
+        axis.title.y = element_text(face="bold", size = 12))
+
+
+
+stemsExplore
+
+
+```
+
+## Stem size per year
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+
+groupedPine <- pine %>%
+  group_by(PRES,  SIZE,  MONYEAR)%>%
+  summarise(meanSTEMS = mean(STEMS))
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+stemsSizeYear <-groupedPine %>%
+
+ ggplot(aes(x= MONYEAR, y= meanSTEMS, group = SIZE, color = SIZE)) +
+  geom_line(size=1.5) +
+  geom_point(size =  2.0) +
+
+  # My top color palette
+  scale_color_simpsons() +
+
+  # Theme
+  theme_bw() +
+
+
+  # Update the labels of the axes
+  labs(x = "Year",
+       y = "Mean number of stems per year at ABRP",
+       title = "Summarizing number of stems across size categories",
+       caption = "Data from Florida Chapter",
+       color = "Stem Size")  +
+
+  #Adjust the axes
+  theme(plot.title = element_text(face="bold", size =14),
+        axis.title.x = element_text(face="bold", size = 12),
+        axis.title.y = element_text(face="bold", size = 12),
+        legend.title = element_text(face="bold", size = 12))
+stemsSizeYear
+```
+
+
+
+## Number of stems per size class category.  To view limited number of plots select from dropdown. 
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+#make shared data for crosstalk
+sdPine <- highlight_key(pine)
+
+# BU 5 data for mean lines
+pineStemsBU5 <- read_csv("data/pineStemsBU5.csv")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=8}
+pinePlotStems <-  
+ggplot(sdPine, aes(MONYEAR, STEMS, color = SIZE, group = BP)) +
+  geom_line(size=1.5, position = position_jitter(width = 0.0001, height = 1.0)) +
+
+  geom_point() +
+  theme_bw() +
+  labs(
+    title = "Pine stems per plot",
+    subtitle = "Including size class",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Monitoring Year",
+    y = "Number of stems" ) +
+  scale_color_simpsons()
+
+bscols(widths = c(5, 12),
+       filter_select("BP", "Plot:", sdPine, ~ BP),
+       ggplotly(pinePlotStems)
+)
+
+```
+
+
+
+
+
+
 
 
