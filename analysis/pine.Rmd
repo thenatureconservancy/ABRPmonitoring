@@ -150,8 +150,6 @@ stemsSizeYear
 #make shared data for crosstalk
 sdPine <- highlight_key(pine)
 
-# BU 5 data for mean lines
-pineStemsBU5 <- read_csv("data/pineStemsBU5.csv")
 ```
 
 
@@ -177,8 +175,43 @@ bscols(widths = c(5, 12),
 
 ```
 
+## Stems compared to plots in BU 5
+
+```{r vsBU5data, message=FALSE, warning=FALSE, include=FALSE}
+
+# read data
+averagePineStemsBU <- read_csv("data/averagePineStemsBU.csv") #renamed AVERAGE_STEMS to STEMS
 
 
+pineBU5all <- read_csv("data/pineBU5all.csv")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=30, fig.width = 12 }
+stemsSizeYearBU <-
+
+  ggplot(data = averagePineStemsBU, aes(x= MONYEAR, y= STEMS, group = BU, color = as.factor(BU))) +
+  geom_line(size=0.5) +
+  geom_point(size =  1.5) +
+  geom_smooth(data = pineBU5all, method=lm, size = 2.0, color = "black" ) +
+  facet_wrap(~ SIZE, ncol = 1, scales = "free_y") +
+
+
+  # My top color palette
+  scale_color_simpsons() +
+
+
+
+  # Update the labels of the axes
+  labs(x = "Year",
+       y = "Mean number of stems",
+       title = "Summarizing number of stems across size categories",
+       subtitle = "Black line represented smoothed data and 95% confidence interval from BU 5", 
+       caption = "Data from Florida Chapter",
+       color = "Burn Unit") 
+
+ggplotly(stemsSizeYearBU)
+```
 
 
 
