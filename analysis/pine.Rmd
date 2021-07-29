@@ -17,6 +17,9 @@ editor_options:
 * B-Ps 7_3, 7_5 was missing MONDATE information for 2019.  Swaty manually entered "2019" based on exploring neighboring plots in the dataset.
 * Found many typos and case issues (e.g., "Seedling" instead of "SEEDLING")
 
+![](assets/external.png)
+
+
 ```{r pineSetup, message=FALSE, warning=FALSE, include=FALSE}
 pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce)
 theme_set(theme_bw())

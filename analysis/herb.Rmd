@@ -1,0 +1,17 @@
+---
+title: "Perinnieal grass"
+author: "The Nature Conservancy's LANDFIRE team"
+date: "7/13/2021"
+output: html_document
+---
+
+
+## Herbaceious Data
+
+### Data cleaning notes
+
+* Saved as "herbWU.xsls"
+* Assumed "99999" meant "no data". Changed to "NA".  Looks like (at least for some years) only one quadrat was sampled for % PG, % WP, % OP, % LI AND % BG.
+* Did nothing with blank cells.
+* Deleted row with AVERAGES
+* * Bull-dozing happened (instead of fire?) for MONYEAR 2007, B-Ps 7_8, 7_7, 7_6, and 7_4.  Did not transfer this information to LASTBURNYEAR (but is is in LASTBURN column). Swaty did not want to mix numerical and text data types in the LASTBURNYEAR column.

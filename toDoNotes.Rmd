@@ -7,13 +7,16 @@ output: html_document
 
 To do list:
 
-* make sure that legend/people information is included
+* add "documentation" page
+        * legend/people information is included
+        * links to datasets
 * insert map (include treatment shapes?)
 * links to raw and clean data?
 * make charts:
     * Pines – by plot.  Showing number of stems over time within each size class:  seedlings, A-J.
+        * try heatmap where each "row" is a BUP, each colum is a year, color is # of seedlings (perhaps the difference between BUP and 5), and there is a separate one for each seedling size
     * From herbaceous:
-        * Wiregrass/perennial grass over by plot.   
+        * Wiregrass/perennial grass cover by plot.   
         * %PG from herbaceous data.  One graph for each plot with mean of quadrats 1-20 – add confidence interval?
-    * any canopy charts?
+
 * insert LANDFIRE page (from ABRPwfArchive)
