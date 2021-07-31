@@ -21,7 +21,7 @@ editor_options:
 
 
 ```{r pineSetup, message=FALSE, warning=FALSE, include=FALSE}
-pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce)
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR)
 theme_set(theme_bw())
 ```
 
@@ -196,7 +196,7 @@ stemsSizeYearBU <-
   ggplot(data = averagePineStemsBU, aes(x= MONYEAR, y= STEMS, group = BU, color = as.factor(BU))) +
   geom_line(size=0.5) +
   geom_point(size =  1.5) +
-  geom_smooth(data = pineBU5all, method=lm, size = 2.0, color = "black" ) +
+  geom_smooth(data = pineBU5all, method=lm, size = 1.0, color = "black" ) +
   facet_wrap(~ SIZE, ncol = 1, scales = "free_y") +
 
 
@@ -215,6 +215,33 @@ stemsSizeYearBU <-
 
 ggplotly(stemsSizeYearBU)
 ```
+
+
+
+## Heatmap Charts 
+
+These charts compare number of stems per BU_P to the mean number of stems for BU 5
+
+
+```{r slickRImages, message=FALSE, warning=FALSE, include=FALSE}
+
+pineImages <- c("heatmapA.png", "heatmapB.png")
+
+```
+
+
+
+```{r}
+
+pineSlick <- slickR(obj = pineImages, height=550, width='120%') 
+pineSlick
+
+```
+
+
+
+
+
 
 
 
