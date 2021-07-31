@@ -1,6 +1,6 @@
+# pine heatmap 2
 
 
-# pine heatmap effort
 
 
 pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, RColorBrewer)
@@ -33,42 +33,33 @@ comparePineClean <- subset(comparePine, select = c(MONYEAR.x, SIZE.x, BP, differ
 comparePineClean$MONYEAR.x <- factor(comparePineClean$MONYEAR.x, levels = 1995:2020)
 
 
-
-# try heatmap with this tutorial https://www.royfrancis.com/a-guide-to-elegant-tiled-heatmaps-in-r-2019/
-
 # will start with size = A
 
 comparePineCleanA <- subset(comparePineClean, SIZE.x == "A")
 
-view (comparePineCleanA)
+# try to fix difference column to make it easier to chart
 
-# try "complete" to remove emplty cells
+comparePineCleanA2 <- comparePineCleanA %>%
+  mutate(diffFactor = cut(difference, breaks = c(-120, -100, -80, -60, -40, -20, 0, 20),
+         labels = c("<-100", "-100 - -80", "-80 - -60", "-60 - -40", "-40 - -20", "-20 - 0", "0 - 20")))
 
-comparePineCleanA <- comparePineCleanA %>%   complete(MONYEAR.x, BP)
 
+textcol <- "grey40"
 
-
-# try the plot for seedling size A
-# JESUS try this https://stackoverflow.com/questions/65627153/specify-bin-colours-in-binned-colour-fill-scales
-# OMG https://www.royfrancis.com/a-guide-to-elegant-tiled-heatmaps-in-r-2019/
-
-breaks <- c(-100, -80, -60, -40, -20, 0)
-
-pineHeatmapA <-
-ggplot(data = comparePineCleanA, aes(x = factor(MONYEAR.x), y = BP, fill = difference)) +
+ggplot(comparePineCleanA2,aes(x=MONYEAR.x,y=BP,fill=diffFactor))+
   geom_tile(colour="white",size=0.2)+
   scale_x_discrete(breaks=c("1995","2000","2005","2010","2015","2020"),
                    drop = F) +
-  scale_fill_stepsn(colors = RColorBrewer::brewer.pal(8, "Spectral"), breaks = breaks) +
-  coord_equal(ratio = .3) +
-  labs(
-    title = "Difference between mean pine stem counts for BU 5, and individual BU-Plot combinations.",
-    subtitle = "Size Class A",
-    caption = "Plot 5 is considered reference.  Grey indicates no data.",
-    x = "Year",
-    y = "Burn Unit_Plot Number")+
-  theme(panel.background = element_rect(fill="grey87"),
-        panel.border = element_rect(fill = "grey87", color = "black"),
+  guides(fill=guide_legend(title="Difference in stem count\ncompared to mean of BU 5"))+
+  labs(x="Year",
+       y="Burn Unit_Plot Number",
+       title="Difference between mean pine stem counts for BU 5, and individual BU-Plot combinations.",
+       subtitle = "Size Class A",
+       caption = "Plot 5 is considered reference.  White indicates no data.") +
+  scale_fill_manual(values=c("#d53e4f","#f46d43","#fdae61","#fee08b","#e6f598","#abdda4","#ddf1da"),na.value = "grey90")+
+  theme(panel.background = element_rect(fill="white"),
+        panel.border = element_rect(fill = NA, color = "black"),
+        #legend.title = element_blank(),
         legend.position="right",
         strip.text = element_text(face="bold", size=9),
         axis.text=element_text(face="bold"),
@@ -78,7 +69,10 @@ ggplot(data = comparePineCleanA, aes(x = factor(MONYEAR.x), y = BP, fill = diffe
         plot.title.position = "plot",
         plot.caption.position =  "plot")
 
-pineHeatmapA
+
+
+
+
 
 
 
