@@ -140,7 +140,7 @@ pineBU5all <- read_csv("data/pineBU5all.csv")
 ```
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=30, fig.width = 12 }
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=30, fig.width = 10 }
 stemsSizeYearBU <-
 
   ggplot(data = averagePineStemsBU, aes(x= MONYEAR, y= STEMS, group = BU, color = as.factor(BU))) +

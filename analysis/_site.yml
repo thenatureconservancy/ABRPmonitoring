@@ -9,10 +9,7 @@ navbar:
     href: pineData.html
   - text: Pine Charts
     href: pine.html
-  - text: About
-    href: about.html
-  - text: License
-    href: license.html
+
   right:
   - icon: fa-github
     text: Source code
