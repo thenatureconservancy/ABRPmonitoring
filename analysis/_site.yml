@@ -5,7 +5,9 @@ navbar:
   left:
   - text: This site
     href: index.html
-  - text: Pine
+  - text: Pine Data
+    href: pineData.html
+  - text: Pine Charts
     href: pine.html
   - text: About
     href: about.html
