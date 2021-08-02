@@ -22,15 +22,15 @@ pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, gg
 theme_set(theme_bw())
 ```
 
-```{r}
+```{r perGrassData, message=FALSE, warning=FALSE, include=FALSE}
 perGrass <- read_csv("data/perGrass.csv")
-View(perGrass)
+
 ```
 
 
 # Jittered boxplots of percent perinnial grass over time
 
-```{r}
+```{r perGrassBox, echo=FALSE, message=FALSE, warning=FALSE}
 explorePerGrass <-
   perGrass %>%
   ggplot(aes(x = MONYEAR, y = meanPerPG, group = MONYEAR)) +
