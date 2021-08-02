@@ -1,0 +1,104 @@
+---
+title: "Herbaceous data"
+author: "rswaty"
+date: "2021-08-02"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Herbaceous Data
+
+### Data cleaning notes
+
+* All cleaned Herbaceous data aved as "herbWU.csv"
+* For Perennial Grasses, that data was copied and pasted into a new spreadsheet, "perGrass.csv".   Used Pivot Table to create this new spreadsheet.  
+* Assumed "99999" meant "no data". Changed to "NA".  Looks like (at least for some years) only one quadrat was sampled for % PG, % WP, % OP, % LI AND % BG.
+* Did nothing with blank cells.
+* Deleted rows with AVERAGES
+* * Bull-dozing happened (instead of fire?) for MONYEAR 2007, B-Ps 7_8, 7_7, 7_6, and 7_4.  Did not transfer this information to LASTBURNYEAR (but is is in LASTBURN column). Swaty did not want to mix numerical and text data types in the LASTBURNYEAR column.
+
+
+```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce)
+theme_set(theme_bw())
+```
+
+```{r readPerGRass, message=FALSE, warning=FALSE, include=FALSE}
+perGrass <- read_csv("data/perGrass.csv")
+
+```
+
+### Perennial Grass Data Table
+The cleaned Perennial data is served up below.  
+
+<br>
+
+```{r perGrassDT, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+datatable(perGrass,
+  extensions = 'Buttons', options = list(
+    dom = 'Bfrtip',
+    buttons = 
+      list('copy', 'print', list(
+        extend = 'collection',
+        buttons = c('csv', 'excel', 'pdf'),
+        text = 'Download'))))
+```
+
+<br>
+
+
+### All Herbaceious Data Table
+The cleaned Perennial data is served up below.  
+
+<br>
+
+```{r herbDT, echo=FALSE, message=FALSE, warning=FALSE}
+
+herbWU <- read_csv("data/herbWU.csv")
+
+datatable(herbWU,
+  extensions = 'Buttons', options = list(
+    dom = 'Bfrtip',
+    buttons = 
+      list('copy', 'print', list(
+        extend = 'collection',
+        buttons = c('csv', 'excel', 'pdf'),
+        text = 'Download'))))
+```
+
+<br>
+
+
+
+
+### Number of observations variable over time
+
+```{r PGobs, echo=FALSE, message=FALSE, warning=FALSE}
+
+yearObsPG <-
+perGrass %>%
+  count(MONYEAR)
+
+yearObsPGChart <-
+  yearObsPG %>%
+  ggplot(aes(x = MONYEAR, y = n)) +
+  geom_line(size = 1.5) +
+  labs(x = "Year",
+       y = "Number of rows",
+       title = "Number of observations per year",
+       caption = "Data from Florida Chapter")  +
+
+
+  #Adjust the axes
+  theme(plot.title = element_text(face="bold", size =14),
+        axis.title.x = element_text(face="bold", size = 12),
+        axis.title.y = element_text(face="bold", size = 12),
+        legend.title = element_text(face="bold", size = 12))
+
+
+yearObsPGChart
+```
+

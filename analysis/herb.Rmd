@@ -1,5 +1,5 @@
 ---
-title: "Perinnieal grass"
+title: "Perinnieal grass charts"
 author: "The Nature Conservancy's LANDFIRE team"
 date: "7/13/2021"
 output: html_document
@@ -18,7 +18,7 @@ output: html_document
 
 
 ```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
-pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR)
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce)
 theme_set(theme_bw())
 ```
 
@@ -28,15 +28,47 @@ View(perGrass)
 ```
 
 
+# Jittered boxplots of percent perinnial grass over time
+
+```{r}
+explorePerGrass <-
+  perGrass %>%
+  ggplot(aes(x = MONYEAR, y = meanPerPG, group = MONYEAR)) +
+  geom_boxplot(position = position_dodge(width = 0.9),
+               fill = "#4287f5",
+               alpha = 0.5) +
+  geom_jitter(width = 0.25) +
+  theme_bw() +
+  labs(x = "Year",
+       y = "Number of stems",
+       title = "Total number of stems per plot",
+       subtitle = "Dots jittered so that they would not totally overlap",
+       caption = "Data from Florida Chapter")  +
+
+  #Adjust the axes, remove legend
+  theme(legend.position = "none",
+        plot.title = element_text(face="bold", size =14),
+        axis.title.x = element_text(face="bold", size = 12),
+        axis.title.y = element_text(face="bold", size = 12))
 
 
-## Number of stems per size class category.  To view limited number of plots select from dropdown. 
+
+explorePerGrass
+```
+
+
+
+
+
+
+## Percent perinneal grass over time per BU_P.  To view limited number of BU-Ps select from dropdown. 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
 #make shared data for crosstalk
 sdPerGrass <- highlight_key(perGrass)
 
 ```
+
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=8}
