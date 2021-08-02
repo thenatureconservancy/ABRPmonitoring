@@ -9,6 +9,13 @@ navbar:
     href: pineData.html
   - text: Pine Charts
     href: pine.html
+  - text: Herb Data
+    href: herbData.html
+  - text: Perennial Grass Charts
+    href: harb.html
+  - text: LANDFIRE maps
+    href: LANDFIRE.html
+
 
   right:
   - icon: fa-github
