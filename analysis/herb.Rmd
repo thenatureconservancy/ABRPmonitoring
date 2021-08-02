@@ -6,7 +6,7 @@ output: html_document
 ---
 
 
-## Herbaceious Data
+## Herbaceous Data
 
 ### Data cleaning notes
 
@@ -17,6 +17,45 @@ output: html_document
 * * Bull-dozing happened (instead of fire?) for MONYEAR 2007, B-Ps 7_8, 7_7, 7_6, and 7_4.  Did not transfer this information to LASTBURNYEAR (but is is in LASTBURN column). Swaty did not want to mix numerical and text data types in the LASTBURNYEAR column.
 
 
-NEED TO MAKE
- * Wiregrass/perennial grass cover by plot.   
-        * %PG from herbaceous data.  One graph for each plot with mean of quadrats 1-20 – add confidence interval?
+```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR)
+theme_set(theme_bw())
+```
+
+```{r}
+perGrass <- read_csv("data/perGrass.csv")
+View(perGrass)
+```
+
+
+
+
+## Number of stems per size class category.  To view limited number of plots select from dropdown. 
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+#make shared data for crosstalk
+sdPerGrass <- highlight_key(perGrass)
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=8}
+perGrassPlot <-  
+ggplot(sdPerGrass, aes(MONYEAR, meanPerPG, group = BP)) +
+  geom_line(size=1.5, position = position_jitter(width = 0.0001, height = 1.0)) +
+  geom_point() +
+  theme_bw() +
+  labs(
+    title = "Average Percent Perinnial Grass per plot",
+    subtitle = "",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Monitoring Year",
+    y = "Mean Percent" ) +
+  scale_color_simpsons()
+
+bscols(widths = c(5, 12),
+       filter_select("BP", "Plot:", sdPerGrass, ~ BP),
+       ggplotly(perGrassPlot)
+)
+
+```
