@@ -12,7 +12,7 @@ navbar:
   - text: Herb Data
     href: herbData.html
   - text: Perennial Grass Charts
-    href: harb.html
+    href: herb.html
   - text: LANDFIRE maps
     href: LANDFIRE.html
 
