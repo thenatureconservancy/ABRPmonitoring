@@ -27,7 +27,7 @@ comparePine <- merge(fiveStems, pineDiverge, by.x = "FIVE_SIZE_MONYEAR", by.y = 
 
 # add in "difference" column
 
-comparePine$difference <-comparePine$AVE_STEMS - comparePine$STEMS
+comparePine$difference <- comparePine$STEMS - comparePine$AVE_STEMS
 
 # clean up.  I need to keep MONYEAR.x, SIZE.x, BP and difference columns
 
@@ -35,13 +35,19 @@ comparePineClean <- subset(comparePine, select = c(MONYEAR.x, SIZE.x, BP, differ
 
 comparePineClean$MONYEAR.x <- factor(comparePineClean$MONYEAR.x, levels = 1995:2020)
 
+#write.csv(comparePineClean, file = "comparePineClean.csv")
+
 # try to fix difference column to make it easier to chart
 
 comparePineClean <- comparePineClean %>%
-  mutate(diffFactor = cut(difference, breaks = c(-510, -120, -100, -80, -60, -40, -20, 0, 20, 40, 60),
-                          labels = c( "< -120", "-120 - -100", "-100 - -80", "-80 - -60", "-60 - -40", "-40 - -20", "-20 - 0", "0 - 20", "20 - 40", "40 - 60")))
+  mutate(diffFactor = cut(difference, breaks = c( -60, -40, -20, 20, 40, 60, 80, 100, 120, 520),
+                          labels = c("-60 - -40", "-40 - -20", "-20 - 20",  "20 - 40", "40 - 60", "60 - 80", "80 - 100", "100 - 120", "< 120")))
 
 
+
+
+
+write.csv(comparePineClean, file = "comparePineClean.csv") # inserts equals sign...ignore for now
 ###  set up heatmap
 
 
@@ -54,18 +60,17 @@ ggplot(comparePineClean,aes(x=MONYEAR.x,y=BP,fill=diffFactor))+
   labs(x="Year",
        y="Burn Unit_Plot Number",
        title="Difference between mean pine stem counts for BU 5, and individual BU-Plot combinations.",
-       subtitle = "Size Class XXXXXXXXXX", ### MAKE SURE TO CHANGE THIS AS NEEDED
+       subtitle = "Size Class in centimeters = A (0 - 2.5)", ### MAKE SURE TO CHANGE THIS AS NEEDED
        caption = "Plot 5 is considered reference.  White indicates no data.") +
-  scale_fill_manual(values=c("#450c13", # PLUM < -120
-                             "#8c1c29", # MAROON -120 - -100
-                             "#d53e4f", # SALMON -100 - -80
-                             "#f46d43", # ORANGE -80 - -60
-                             "#fdae61", # LIGHT ORANGE -60 - -40
-                             "#fee08b", # YELLOW -40 - -20
-                             "#e6f598", # LIGHT GREEN/YELLOW -20 - 0
-                             "#ddf1da", # LIGHT GREEN  0-20
-                             "#abdda4", # MEDIUM GREEN 20-40
-                             "#5a8a53"  # DARK GREEN 40-60
+  scale_fill_manual(values=c(#"#f46d43", # ORANGE -60 - -40
+                             #"#fee08b", # YELLOW -40 - -20
+                             "#f5d682", # LIGHT GREEN/YELLOW -20 - 20
+                              "#ddf1da", # LIGHT GREEN  20-40
+                              #"#aadca3", # 40-60
+                              #"#6ac25e", # 60-80
+                              "#3f8b35", #80-100
+                              "#2a5d23", #100-120
+                             "#193614" # <120
                              ),
                               na.value = "grey90")+
   theme(panel.background = element_rect(fill="white"),
@@ -84,7 +89,7 @@ ggplot(comparePineClean,aes(x=MONYEAR.x,y=BP,fill=diffFactor))+
 
 heatmapA <- heatmap %+% subset(comparePineClean, SIZE.x %in% c("A"))
 heatmapA
-ggsave(heatmapA, filename="heatmapA.png",width=10,height=8,units='in',dpi=300)
+ggsave(heatmapA, filename="heatmapA2.png",width=10,height=8,units='in',dpi=300) # fixed?
 
 heatmapB <- heatmap %+% subset(comparePineClean, SIZE.x %in% c("B"))
 heatmapB
@@ -129,8 +134,18 @@ ggsave(heatmapSeedlings, filename="heatmapSeedlings.png",width=10,height=8,units
 
 
 
-
-
+# OLD BACKARDS
+# scale_fill_manual(values=c("#450c13", # PLUM < -120
+#                            "#8c1c29", # MAROON -120 - -100
+#                            "#d53e4f", # SALMON -100 - -80
+#                            "#f46d43", # ORANGE -80 - -60
+#                            "#fdae61", # LIGHT ORANGE -60 - -40
+#                            "#fee08b", # YELLOW -40 - -20
+#                            "#e6f598", # LIGHT GREEN/YELLOW -20 - 20
+#                            "#ddf1da", # LIGHT GREEN  0-20 (doesn't exist anymore)
+#                            "#abdda4", # MEDIUM GREEN 20-40
+#                            "#5a8a53"  # DARK GREEN 40-60
+# )
 
 
 
