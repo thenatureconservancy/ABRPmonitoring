@@ -60,16 +60,16 @@ ggplot(comparePineClean,aes(x=MONYEAR.x,y=BP,fill=diffFactor))+
   labs(x="Year",
        y="Burn Unit_Plot Number",
        title="Difference between mean pine stem counts for BU 5, and individual BU-Plot combinations.",
-       subtitle = "Size Class in centimeters = A (0 - 2.5)", ### MAKE SURE TO CHANGE THIS AS NEEDED
+       subtitle = "Size Class in centimeters = SEEDLING ", ### MAKE SURE TO CHANGE THIS AS NEEDED
        caption = "Plot 5 is considered reference.  White indicates no data.") +
   scale_fill_manual(values=c(#"#f46d43", # ORANGE -60 - -40
                              #"#fee08b", # YELLOW -40 - -20
-                             "#f5d682", # LIGHT GREEN/YELLOW -20 - 20
-                              "#ddf1da", # LIGHT GREEN  20-40
-                              #"#aadca3", # 40-60
-                              #"#6ac25e", # 60-80
-                              "#3f8b35", #80-100
-                              "#2a5d23", #100-120
+                             "#9b9e9c", # Grey -20 - 20
+                             "#ddf1da", # LIGHT GREEN  20-40
+                             # "#aadca3", # 40-60
+                             # "#6ac25e", # 60-80
+                             # "#3f8b35", #80-100
+                             # "#2a5d23", #100-120
                              "#193614" # <120
                              ),
                               na.value = "grey90")+
@@ -93,43 +93,43 @@ ggsave(heatmapA, filename="heatmapA2.png",width=10,height=8,units='in',dpi=300) 
 
 heatmapB <- heatmap %+% subset(comparePineClean, SIZE.x %in% c("B"))
 heatmapB
-ggsave(heatmapB, filename="heatmapB.png",width=10,height=8,units='in',dpi=300)
+ggsave(heatmapB, filename="heatmapB2.png",width=10,height=8,units='in',dpi=300)
 
 heatmapC <- heatmap %+% subset(comparePineClean, SIZE.x %in% c("C"))
 heatmapC
-ggsave(heatmapC, filename="heatmapC.png",width=10,height=8,units='in',dpi=300)
+ggsave(heatmapC, filename="heatmapC2.png",width=10,height=8,units='in',dpi=300)
 
 heatmapD <- heatmap %+% subset(comparePineClean, SIZE.x %in% c("D"))
 heatmapD
-ggsave(heatmapD, filename="heatmapD.png",width=10,height=8,units='in',dpi=300)
+ggsave(heatmapD, filename="heatmapD2.png",width=10,height=8,units='in',dpi=300)
 
 heatmapE <- heatmap %+% subset(comparePineClean, SIZE.x %in% c("E"))
 heatmapE
-ggsave(heatmapE, filename="heatmapE.png",width=10,height=8,units='in',dpi=300)
+ggsave(heatmapE, filename="heatmapE2.png",width=10,height=8,units='in',dpi=300)
 
 heatmapF <- heatmap %+% subset(comparePineClean, SIZE.x %in% c("F"))
 heatmapF
-ggsave(heatmapF, filename="heatmapF.png",width=10,height=8,units='in',dpi=300)
+ggsave(heatmapF, filename="heatmapF2.png",width=10,height=8,units='in',dpi=300)
 
 heatmapG <- heatmap %+% subset(comparePineClean, SIZE.x %in% c("G"))
 heatmapG
-ggsave(heatmapG, filename="heatmapG.png",width=10,height=8,units='in',dpi=300)
+ggsave(heatmapG, filename="heatmapG2.png",width=10,height=8,units='in',dpi=300)
 
 heatmapH <- heatmap %+% subset(comparePineClean, SIZE.x %in% c("H"))
 heatmapH
-ggsave(heatmapH, filename="heatmapH.png",width=10,height=8,units='in',dpi=300)
+ggsave(heatmapH, filename="heatmapH2.png",width=10,height=8,units='in',dpi=300)
 
 heatmapI <- heatmap %+% subset(comparePineClean, SIZE.x %in% c("I"))
 heatmapI
-ggsave(heatmapI, filename="heatmapI.png",width=10,height=8,units='in',dpi=300)
+ggsave(heatmapI, filename="heatmapI2.png",width=10,height=8,units='in',dpi=300)
 
 heatmapJ <- heatmap %+% subset(comparePineClean, SIZE.x %in% c("J"))
 heatmapJ
-ggsave(heatmapJ, filename="heatmapJ.png",width=10,height=8,units='in',dpi=300)
+ggsave(heatmapJ, filename="heatmapJ2.png",width=10,height=8,units='in',dpi=300)
 
 heatmapSeedlings <- heatmap %+% subset(comparePineClean, SIZE.x %in% c("SEEDLING"))
 heatmapSeedlings
-ggsave(heatmapSeedlings, filename="heatmapSeedlings.png",width=10,height=8,units='in',dpi=300)
+ggsave(heatmapSeedlings, filename="heatmapSeedlings2.png",width=10,height=8,units='in',dpi=300)
 
 
 

@@ -7,7 +7,7 @@ output: html_document
 
 
 ```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
-pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR)
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR, ggplus)
 theme_set(theme_bw())
 ```
 
@@ -25,9 +25,8 @@ pine %>%
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=8}
 
-library(ggplus)
 
-pdf("test3free.pdf")
+pdf("pineStemCharts.pdf")
 pinePlotStems <-  
 ggplot(pine, aes(MONYEAR, STEMS, color = SIZE, group = SIZE)) +
   geom_line(size=1.5, position = position_jitter(width = 0.0001, height = 1.0)) +
