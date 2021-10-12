@@ -23,11 +23,11 @@ To do list:
 
 FROM 10 Sept 21 meeting
 * fix issue with BUP 7_1 which has several points for 2010 (appears to be an issue with the calculations in Excel?)
-    * raw data looks OK
-    * read in data (with mutate) looks OK
-    * seems OK
-* either add free axes OR print individual line charts for PINE (print to PDF?)
+    * PINE raw data looks OK
+    * PINE read in data (with mutate) looks OK
+    * PINE seems OK
+* either add free axes OR print individual line charts for PINE (print to PDF?) DONE--PDF
+* finish fixing heatmaps-DONE
+* notes for 21_4 and 40_10...mystery data-DONE for PINE; 
 * send cleaned up datasets
-* finish fixing heatmaps
-* notes for 21_4 and 40_10...mystery data-DONE
 

@@ -181,17 +181,17 @@ These charts compare number of stems per BU_P to the mean number of stems for BU
 
 ```{r slickRImages, message=FALSE, warning=FALSE, include=FALSE}
 
-pineImages <- c("heatmapA.png", 
-                "heatmapB.png",
-                "heatmapC.png",
-                "heatmapD.png",
-                "heatmapE.png",
-                "heatmapF.png",
-                "heatmapG.png",
-                "heatmapH.png",
-                "heatmapI.png",
-                "heatmapJ.png",
-                "heatmapSeedlings.png")
+pineImages <- c("heatmapA2.png", 
+                "heatmapB2.png",
+                "heatmapC2.png",
+                "heatmapD2.png",
+                "heatmapE2.png",
+                "heatmapF2.png",
+                "heatmapG2.png",
+                "heatmapH2.png",
+                "heatmapI2.png",
+                "heatmapJ2.png",
+                "heatmapSeedlings2.png")
 
 ```
 
