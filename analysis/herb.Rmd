@@ -79,7 +79,7 @@ ggplot(sdPerGrass, aes(MONYEAR, meanPerPG, group = BP)) +
   theme_bw() +
   labs(
     title = "Average Percent Perinnial Grass per plot",
-    subtitle = "",
+    subtitle = "Ignore BU-plot 21_4.  It appears to be a data issue, but we decided to not delete the data.",
     caption = "Data from TNC's Florida Chapter",
     x = "Monitoring Year",
     y = "Mean Percent" ) +

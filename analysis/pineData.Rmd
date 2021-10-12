@@ -10,12 +10,15 @@ editor_options:
 
 
 ### Data cleaning notes
-* worked from data delivered by Beatriz (INSERT LINK AND NAME OF FILE)
+* worked from data delivered by Beatriz (ABRP_bioplots_1995-2018)[LINK]
 * added "B-P" column, concatenated BU and Plot numbers to generate unique value for charts
-* added MONYEAR and LASTBURNYEAR columns for charts (also, some burns only had years recorded).  Used "text to columns" tool in Excel with "/" as the delimeter to create new YEAR-based columns where possible.  Manually entered years for many records.
+* added MONYEAR and LASTBURNYEAR columns for charts (also, some burns only had years recorded).  Used "text to columns" tool in Excel with "/" as the delimiter to create new YEAR-based columns where possible.  Manually entered years for many records.
 * Bull-dozing happened (instead of fire?) for MONYEAR 2007, B-Ps 7_8, 7_7, 7_6, and 7_4.  Did not transfer this information to LASTBURNYEAR (but is is in LASTBURN column). Swaty did not want to mix numerical and text data types in the LASTBURNYEAR column.
 * B-Ps 7_3, 7_5 was missing MONDATE information for 2019.  Swaty manually entered "2019" based on exploring neighboring plots in the dataset.
 * Found many typos and case issues (e.g., "Seedling" instead of "SEEDLING")
+* In pine.csv:
+    * deleted 21_4 data for 2001
+    * deleted 40_10 data for 1998
 
 
 ```{r pineDataSetup, message=FALSE, warning=FALSE, include=FALSE}
