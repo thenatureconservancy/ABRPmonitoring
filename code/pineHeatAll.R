@@ -47,7 +47,7 @@ comparePineClean <- comparePineClean %>%
 
 
 
-write.csv(comparePineClean, file = "comparePineClean.csv") # inserts equals sign...ignore for now
+write.csv(comparePineClean, file = "data/comparePineClean.csv") # inserts equals sign...ignore for now
 ###  set up heatmap
 
 

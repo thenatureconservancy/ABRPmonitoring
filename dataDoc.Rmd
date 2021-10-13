@@ -1,0 +1,51 @@
+---
+title: "ReadMe for Data"
+author: "The Nature Conservancy's LANDFIRE team"
+date: "10/13/2021"
+output: pdf_document
+---
+
+
+This document serves to document changes made to datasets (will be repeated on website), link to and describe datasets.
+
+## Goals and deliverables Phase 1
+In general the aim of Phase 1 for ABRP is to get the data wrangled and to provide input that guides future monitoring, and eventually management.  
+
+**Deliverables**
+
+1. Cleaned datasets
+2. Charts of pine stems and wiregrass
+3. LANDFIRE Maps and charts
+4. Website with downloadable code
+
+## Pine Data Wrangling
+* worked from data delivered by Beatriz (ABRP_bioplots_1995-2018)[LINK]
+* added "B-P" column, concatenated BU and Plot numbers to generate unique value for charts
+* added MONYEAR and LASTBURNYEAR columns for charts (also, some burns only had years recorded).  Used "text to columns" tool in Excel with "/" as the delimiter to create new YEAR-based columns where possible.  Manually entered years for many records.
+* Bull-dozing happened (instead of fire?) for MONYEAR 2007, B-Ps 7_8, 7_7, 7_6, and 7_4.  Did not transfer this information to LASTBURNYEAR (but is is in LASTBURN column). Swaty did not want to mix numerical and text data types in the LASTBURNYEAR column.
+* B-Ps 7_3, 7_5 was missing MONDATE information for 2019.  Swaty manually entered "2019" based on exploring neighboring plots in the dataset.
+* Found many typos and case issues (e.g., "Seedling" instead of "SEEDLING")
+* In pine.csv:
+    * deleted 21_4 data for 2001
+    * deleted 40_10 data for 1998
+    
+**Note-deletions only done in "pine.csv".  ABRP_bioplots_1995-2018 was left intact.**
+    
+## Pine Data Descriptions
+There are multiple files with "pine" in the name.  Most were for charts.
+
+1. pine.csv main dataset.  Raw, but note processing steps above.  Some data deleted.
+2. for comparing stem counts to reference sites (BU 5)
+    * averagePineStemsBU
+    * pineBU5all
+    * pineStemsBU5average (intermediate dataset. Not used in charts.)
+3. For heatmaps
+    * pineDiverge (intermediate dataset. Not used in charts.)
+    * fiveStems (intermediate dataset. Not used in charts.)
+    * comparePineClean (intermediate dataset. Not used in charts.)
+
+
+
+
+
+

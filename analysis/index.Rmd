@@ -30,7 +30,7 @@ Plus have LANDFIRE data-based maps for landscape context.
 
 ## People who contributed to data collection (from datasheets; may not be inclusive)
 
-* Doria and other person who did previous analyis (link to)
+* Doria and other person who did previous analysis (link to)
 
 
 
