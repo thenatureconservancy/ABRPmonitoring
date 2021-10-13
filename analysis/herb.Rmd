@@ -40,8 +40,8 @@ explorePerGrass <-
   geom_jitter(width = 0.25) +
   theme_bw() +
   labs(x = "Year",
-       y = "Number of stems",
-       title = "Total number of stems per plot",
+       y = "Cover",
+       title = "Wiregrass cover per plot",
        subtitle = "Dots jittered so that they would not totally overlap",
        caption = "Data from Florida Chapter")  +
 

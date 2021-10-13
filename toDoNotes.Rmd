@@ -17,3 +17,11 @@ FROM 10 Sept 21 meeting
 * notes for 21_4 and 40_10...mystery data-Deleted for PINE;  Deleted for perGrass
 * send cleaned up datasets
 
+FROM 13 Sept
+* perGrass 40_2
+* perGrass 40_5
+* points and lines do not match
+* why are heat maps on the pine charts?
+* with Grass charts is the box labled wrong or in the wrong place?
+* consider 3 size classes for pines
+    * David and Chaz will get me numbers
