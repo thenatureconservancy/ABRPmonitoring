@@ -19,6 +19,15 @@ The overall goal of this project was to organize and explore the long-term monit
 
 Plus have LANDFIRE data-based maps for landscape context.
 
+## Deliverables include:
+
+* cleaned datasets (see this [document](https://github.com/rswaty/ABRPweb/raw/master/dataDoc.pdf) for links to data)
+* charts of
+    * pine stem counts over time by size class, separate chart per Burn Unit-Plot.  See all charts on Pine Charts page.
+    * wiregrass percent cover over time, separate chart per Burn Unit-Plot. See all charts on Perennial Grass Charts page. 
+* LANDFIRE maps
+* *this website* mostly created as a sandbox and for learning/teaching by the developer.  Also serves as additional documentation and contains code for data processing and charts.  Click "Source Code" button to get all datasets and code. 
+
 ## People who contributed to current work
 
 * Beatiz Pace-Aldana
