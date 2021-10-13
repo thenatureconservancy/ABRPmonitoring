@@ -11,6 +11,7 @@ pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, gg
 theme_set(theme_bw())
 ```
 
+# PINE
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
 
@@ -48,3 +49,39 @@ facet_multiple(plot = pinePlotStems,
 
 
 ```
+
+# WIREGRASS
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+
+perGrass <- read_csv("data/perGrass.csv")
+perGrass %>%
+  mutate(MONYEAR = as.character(MONYEAR))
+```
+
+```{r}
+
+pdf("wiregrassCharts.pdf")
+
+perGrassPlot <-  
+ggplot(perGrass, aes(MONYEAR, meanPerPG, group = BP)) +
+  geom_line(size=1.5, position = position_jitter(width = 0.0001, height = 1.0)) +
+  geom_point() +
+  theme_bw() +
+  labs(
+    title = "Average Percent Perinnial Grass per plot",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Monitoring Year",
+    y = "Mean Percent" ) +
+  scale_color_simpsons()
+
+facet_multiple(plot = perGrassPlot, 
+               facets = 'BP', 
+               ncol = 1, 
+               nrow = 3,
+               scales = "free")
+
+
+```
+

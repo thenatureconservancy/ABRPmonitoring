@@ -5,29 +5,15 @@ date: "7/6/2021"
 output: html_document
 ---
 
-To do list:
-
-* add "documentation" page
-        * legend/people information is included
-        * links to datasets
-* insert map (include treatment shapes?)
-* links to raw and clean data?
-* make charts:
-    * Pines – by plot.  Showing number of stems over time within each size class:  seedlings, A-J.
-        * try heatmap where each "row" is a BUP, each colum is a year, color is # of seedlings (perhaps the difference between BUP and 5), and there is a separate one for each seedling size
-    * From herbaceous:
-        * Wiregrass/perennial grass cover by plot.   
-        * %PG from herbaceous data.  One graph for each plot with mean of quadrats 1-20 – add confidence interval?
-
-* insert LANDFIRE page (from ABRPwfArchive)
-
 FROM 10 Sept 21 meeting
 * fix issue with BUP 7_1 which has several points for 2010 (appears to be an issue with the calculations in Excel?)
     * PINE raw data looks OK
     * PINE read in data (with mutate) looks OK
     * PINE seems OK
+    * perGrass recalculated average and standard dev
+    * perGrass fixed years with 7_1
 * either add free axes OR print individual line charts for PINE (print to PDF?) DONE--PDF
 * finish fixing heatmaps-DONE
-* notes for 21_4 and 40_10...mystery data-DONE for PINE; 
+* notes for 21_4 and 40_10...mystery data-Deleted for PINE;  Deleted for perGrass
 * send cleaned up datasets
 

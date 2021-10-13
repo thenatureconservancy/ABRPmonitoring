@@ -11,7 +11,7 @@ editor_options:
 
 ### Data cleaning notes
 
-* All cleaned Herbaceous data aved as "herbWU.csv"
+* All cleaned Herbaceous data saved as "herbWU.csv"
 * For Perennial Grasses, that data was copied and pasted into a new spreadsheet, "perGrass.csv".   Used Pivot Table to create this new spreadsheet.  
 * Assumed "99999" meant "no data". Changed to "NA".  Looks like (at least for some years) only one quadrat was sampled for % PG, % WP, % OP, % LI AND % BG.
 * Did nothing with blank cells.
