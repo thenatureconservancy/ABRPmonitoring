@@ -17,6 +17,11 @@ editor_options:
 * Did nothing with blank cells.
 * Deleted rows with AVERAGES
 * * Bull-dozing happened (instead of fire?) for MONYEAR 2007, B-Ps 7_8, 7_7, 7_6, and 7_4.  Did not transfer this information to LASTBURNYEAR (but is is in LASTBURN column). Swaty did not want to mix numerical and text data types in the LASTBURNYEAR column.
+* In perGrass.csv:
+    * deleted 21_4 data for 2001
+    * deleted 40_10 data for 1998
+    * recalculated average and standard dev for 2010, BP 7_1
+    * fixed missing years for BP 7_1
 
 
 ```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}

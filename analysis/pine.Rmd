@@ -97,7 +97,7 @@ stemsSizeYear
 
 
 
-## Number of stems per size class category.  To view limited number of plots select from dropdown. 
+## Number of stems per size class category.  To view limited number of plots select from dropdown, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/pineStemCharts.pdf). 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
 #make shared data for crosstalk

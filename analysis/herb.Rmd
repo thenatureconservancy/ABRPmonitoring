@@ -61,7 +61,7 @@ explorePerGrass
 
 
 
-## Percent perinneal grass over time per BU_P.  To view limited number of BU-Ps select from dropdown. 
+## Percent perinneal grass over time per BU_P.  To view limited number of BU-Ps select from dropdown, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/wiregrassCharts.pdf).  
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
 #make shared data for crosstalk
