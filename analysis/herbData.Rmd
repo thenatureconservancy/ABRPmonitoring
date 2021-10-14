@@ -22,6 +22,7 @@ editor_options:
     * deleted 40_10 data for 1998
     * recalculated average and standard dev for 2010, BP 7_1
     * fixed missing years for BP 7_1
+    * recalculated average and st. deviation for 40_2 (there were multiples)
 
 
 ```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}

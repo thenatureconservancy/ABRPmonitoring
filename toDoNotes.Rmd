@@ -18,10 +18,16 @@ FROM 10 Sept 21 meeting
 * send cleaned up datasets
 
 FROM 13 Sept
-* perGrass 40_2
-* perGrass 40_5
+* perGrass 40_2 FIXED
+* perGrass 40_5 FIXED
 * points and lines do not match
-* why are heat maps on the pine charts?
-* with Grass charts is the box labled wrong or in the wrong place?
+* why are heat maps on the pine charts? FIXED
+* with Grass charts is the box labeled wrong or in the wrong place? FIXED
 * consider 3 size classes for pines
     * David and Chaz will get me numbers
+    
+with changes:
+1. document on webpages
+2. document on PDF
+3. reknit
+4. post to box
