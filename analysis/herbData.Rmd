@@ -23,6 +23,7 @@ editor_options:
     * recalculated average and standard dev for 2010, BP 7_1
     * fixed missing years for BP 7_1
     * recalculated average and st. deviation for 40_2 (there were multiples)
+    * implemented review of data by Beatice Pace-Aldana "Copy of Herbaceous data-BPA.xlsx"  See notes in that workbook for details.  Standard deviations not calculated for highlighted numbers.
 
 
 ```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}

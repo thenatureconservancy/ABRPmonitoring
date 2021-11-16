@@ -1,0 +1,87 @@
+---
+title: "Pine stems per year by BU and size"
+author: "The Nature Conservancy's LANDFIRE team"
+date: "10/12/2021"
+output: html_document
+---
+
+
+```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR, ggplus)
+theme_set(theme_bw())
+```
+
+# PINE
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+
+pine <- read_csv("data/pine.csv")
+pine %>%
+  mutate(MONYEAR = as.character(MONYEAR))
+```
+
+
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=8}
+
+
+pdf("pineStemCharts.pdf")
+pinePlotStems <-  
+ggplot(pine, aes(MONYEAR, STEMS, color = SIZE, group = SIZE)) +
+  geom_line(size=1.5, position = position_jitter(width = 0.0001, height = 1.0)) +
+  geom_point() +
+  theme_bw() +
+  labs(
+    title = "Pine stems per plot",
+    subtitle = "Including size class",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Monitoring Year",
+    y = "Number of stems" ) +
+  scale_color_simpsons()
+
+facet_multiple(plot = pinePlotStems, 
+               facets = 'BP', 
+               ncol = 1, 
+               nrow = 3,
+               scales = "free")
+
+
+```
+
+# WIREGRASS
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+
+perGrass <- read_csv("data/perGrass.csv")
+perGrass %>%
+  mutate(MONYEAR = as.character(MONYEAR))
+```
+
+```{r}
+
+pdf("wiregrassCharts.pdf")
+
+perGrassPlot <-  
+ggplot(perGrass, aes(MONYEAR, meanPerPG, group = BP)) +
+  geom_line(size=1.5, position = position_jitter(width = 0.0001, height = 1.0)) +
+  geom_point() +
+  theme_bw() +
+  labs(
+    title = "Average Percent Perinnial Grass per plot",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Monitoring Year",
+    y = "Mean Percent" ) +
+  scale_color_simpsons()
+
+facet_multiple(plot = perGrassPlot, 
+               facets = 'BP', 
+               ncol = 1, 
+               nrow = 3,
+               scales = "free")
+
+
+```
+
