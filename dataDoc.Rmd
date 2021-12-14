@@ -29,6 +29,7 @@ In general the aim of Phase 1 for ABRP is to get the data wrangled and to provid
 * In pine.csv:
     * deleted 21_4 data for 2001
     * deleted 40_10 data for 1998
+
     
 **Note-deletions only done in "pine.csv".  ABRP_bioplots_1995-2018 was left intact.**
     
@@ -44,6 +45,9 @@ There are multiple files with "pine" in the name.  Most were for charts.
     * [pineDiverge](https://tnc.box.com/s/oz95kdyg4a1yi84nz7ahqsfkp62con7g) (intermediate dataset. Not used in charts.)
     * [fiveStems](https://tnc.box.com/s/uuybgj4bnyj41vkmxeieyw7irw68ujhh) (intermediate dataset. Not used in charts.)
     * [comparePineClean](https://tnc.box.com/s/tthovx8jlvhrfzx8hofffb85hz5oko93) (intermediate dataset. Not used in charts.)
+    
+## Grouped Pine Data
+David and Chaz provided a grouping scheme.  This was added to the pine data as a new columm, then due to time was formatted for the final [groupedPine](https://tnc.box.com/s/tk6evuux2zzud2a28mzfvx2zkz5gz1oq) dataset. 
 
 ## Wiregrass data wrangling
 In general worked with ABRP_bioplots_1995-2018 herb tab, then saved that to herb.WU.csv.  Wiregrass (perGrass.csv) data is a refinement of herb data. 
@@ -64,6 +68,8 @@ In general worked with ABRP_bioplots_1995-2018 herb tab, then saved that to herb
 
 * [pergrass.csv](https://tnc.box.com/s/38aozohz7kchw9ezgs8mh402lke7e1yn) **main wiregrass dataset.**  Raw, but note processing steps above.  Some data deleted. 
 * [herbWU.csv](https://tnc.box.com/s/ttwl42fiyh9ertv17txb9bq9d4o6wkqu) spreadsheet for working up the wiregrass data
+
+* Beatriz provided additional cleaning.  Her notes and cleaned data are in an Excel file named [Copy of Herbaceous data - BPA](https://tnc.box.com/s/tk6evuux2zzud2a28mzfvx2zkz5gz1oq).  This data replaced all other data and was pasted into other herb datasets.
 
 
 
