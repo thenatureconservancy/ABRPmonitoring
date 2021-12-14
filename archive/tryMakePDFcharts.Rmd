@@ -7,7 +7,7 @@ output: html_document
 
 
 ```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
-pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR, ggplus)
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR, ggplus, viridis)
 theme_set(theme_bw())
 ```
 
@@ -49,6 +49,52 @@ facet_multiple(plot = pinePlotStems,
 
 
 ```
+
+
+# PINE GROUPED
+
+```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR, viridis, ggplus)
+theme_set(theme_bw())
+
+groupedPine <- read_csv("data/groupedPine.csv")
+```
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+#make shared data for crosstalk
+sdGroupedPine <- highlight_key(groupedPine)
+
+```
+
+
+```{r}
+pdf("groupedPineStemCharts.pdf")
+
+groupedPinePlotStems <-  
+ggplot(sdGroupedPine, aes(MONYEAR, STEMS, color = GROUPS, group = GROUPS)) +
+  geom_line(size=1.5, position = position_jitter(width = 0.0001, height = 1.0)) +
+  geom_point() +
+  theme_bw() +
+  labs(
+    title = "",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Monitoring Year",
+    y = "Number of stems",
+       color = "Grouped Stem Size (in CM)") + 
+  scale_color_viridis(discrete = TRUE, option = "D") +
+  scale_fill_viridis(discrete = TRUE) 
+
+
+facet_multiple(plot = groupedPinePlotStems, 
+               facets = 'BP', 
+               ncol = 1, 
+               nrow = 3,
+               scales = "free")
+
+```
+
+
 
 # WIREGRASS
 

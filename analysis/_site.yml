@@ -9,6 +9,8 @@ navbar:
     href: pineData.html
   - text: Pine Charts
     href: pine.html
+  - text: Grouped Pine Charts
+    href: groupedPine.html
   - text: Herb Data
     href: herbData.html
   - text: Perennial Grass Charts
