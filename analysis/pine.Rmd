@@ -23,7 +23,7 @@ On this page several ways to explore patterns in Pine stems are presented.  Some
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
 
-pine <- read_csv("data/pine.csv")
+pine <- read_csv("data/pineALL.csv")
 pine %>%
   mutate(MONYEAR = as.character(MONYEAR))
 ```

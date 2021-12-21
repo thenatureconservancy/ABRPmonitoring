@@ -1,0 +1,175 @@
+---
+title: "Seedlings"
+author: "The Nature Conservancy's LANDFIRE team"
+date: "12/21/2021"
+output: html_document
+---
+
+
+```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR)
+theme_set(theme_bw())
+```
+
+## This page...
+On this page several ways to explore patterns in pine seedlings (counts coded-see note below) are presented.  
+
+**Note** 
+From 1995-2012 total numbers of pine seedlings were collected in datasheets.  From 2012-2020 numbers of seedlings were coded as follows:
+
+* 1 = 1 - 5 seedlings
+* 2 = 6 - 20 seedlings
+* 3 = > 21 seedlings
+
+
+## Coded seedlings summarized, 1995-2020
+
+<br>
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+
+#install.packages('Rmisc')
+library(Rmisc)
+
+seedlings <- read_csv("data/pineSeedlingsOnly.csv")
+seedlings %>%
+  mutate(MONYEAR = as.character(MONYEAR)) 
+
+seedlingsSE <-  summarySE(seedlings, measurevar = 'STEMS', groupvars = "MONYEAR")
+```
+
+
+```{r meanSeedlings, echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=10, fig.height=7}
+
+
+
+seedlingsExplore <-
+  seedlingsSE %>%
+  ggplot(aes(x = MONYEAR, y = STEMS)) +
+  geom_errorbar(aes(ymin=STEMS-se, ymax=STEMS+se), width = 0.2, color = '#9c9991', size = 0.8) +
+  geom_line(size = 1.0, color = '#54524d') +
+  geom_point() +
+  geom_smooth(method=lm) +
+  theme_bw() +
+  labs(x = "Year",
+       y = "Stem count code",
+       title = "Mean seedlings (coded) per year",
+       subtitle = "Trend line fitted with linear model, level of confidence = 0.95",
+       caption = "Data from Florida Chapter")  +
+
+  #Adjust the axes, remove legend
+  theme(legend.position = "none",
+        plot.title = element_text(face="bold", size =14),
+        axis.title.x = element_text(face="bold", size = 12),
+        axis.title.y = element_text(face="bold", size = 12))
+
+seedlingsExplore
+
+
+```
+
+
+# Seedlings per BP over time
+
+
+ Number of stems per size class category.  To view limited number of plots select from dropdown, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/pineSeedlingCats.pdf). 
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+#make shared data for crosstalk
+sdSeedlings <- highlight_key(seedlings)
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=8}
+pineSeedlings <-  
+ggplot(sdSeedlings, aes(MONYEAR, STEMS)) +
+  geom_line(aes(group = 1), size = 0.5, color = '#54524d') +
+  geom_point() +
+  theme_bw() +
+  labs(
+    title = "Pine seedlings per plot (coded)",
+    subtitle = "Including size class",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Year",
+    y = "Stem count code" ) 
+
+bscols(widths = c(5, 12),
+       filter_select("BP", 
+                     "Plot:", 
+                     sdSeedlings, 
+                     ~ BP,
+                     multiple = FALSE),
+       ggplotly(pineSeedlings)
+)
+
+```
+
+
+# Seedling counts, 2012-2020
+
+```{r meanSeedlings2012-2020, echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=10, fig.height=7}
+
+seedlings2012 <- seedlings %>%
+  filter(MONYEAR > 2011)
+
+seedlings2012SE <-  summarySE(seedlings2012, measurevar = 'STEMSraw', groupvars = "MONYEAR")
+
+
+seedlingsExplore2012 <-
+  seedlings2012SE %>%
+  ggplot(aes(x = MONYEAR, y = STEMSraw)) +
+  geom_errorbar(aes(ymin=STEMSraw-se, ymax=STEMSraw+se), width = 0.2, color = '#9c9991', size = 0.8) +
+  geom_line(size = 1.0, color = '#54524d') +
+  geom_point() +
+  geom_smooth(method=lm) +
+  theme_bw() +
+  labs(x = "Year",
+       y = " Raw Stem count",
+       title = "Mean seedlings per year, 2012-2020",
+       subtitle = "Trend line fitted with linear model, level of confidence = 0.95",
+       caption = "Data from Florida Chapter")  +
+
+  #Adjust the axes, remove legend
+  theme(legend.position = "none",
+        plot.title = element_text(face="bold", size =14),
+        axis.title.x = element_text(face="bold", size = 12),
+        axis.title.y = element_text(face="bold", size = 12))
+
+seedlingsExplore2012
+```
+
+
+
+ Number of stems per size class category.  To view limited number of plots select from dropdown, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/pineSeedlingRAW.pdf). 
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+#make shared data for crosstalk
+seedlings2012sd <- highlight_key(seedlings2012)
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=8}
+pineSeedlings2012 <-  
+ggplot(seedlings2012sd, aes(MONYEAR, STEMSraw)) +
+  geom_line(aes(group = 1), size = 0.5, color = '#54524d') +
+  geom_point() +
+  theme_bw() +
+  labs(
+    title = "Pine seedlings per plot, 2012-2020",
+    subtitle = "Including size class",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Year",
+    y = "Raw stem count" ) 
+
+bscols(widths = c(5, 12),
+       filter_select("BP", 
+                     "Plot:", 
+                     seedlings2012sd, 
+                     ~ BP,
+                     multiple = FALSE),
+       ggplotly(pineSeedlings2012)
+)
+
+```

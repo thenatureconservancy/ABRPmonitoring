@@ -31,3 +31,18 @@ with changes:
 2. document on PDF
 3. reknit
 4. post to box
+
+FROM Dec 2021:
+1. Make new Seedlings page with (make sure class A is NOT with seedlings):
+    * charts of 1995-2020 seedlings based on categories
+    * charts of 2012-2020 seedlings raw counts
+    * links to PDFs
+2. Make sure that seedlings are NOT included in any pine charts on the main Pine page
+3. Make sure all data is uploaded, and documented on data readme
+4. Keep and review Grouped Pine charts
+
+
+
+
+
+

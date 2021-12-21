@@ -107,6 +107,8 @@ perGrass %>%
 ```
 
 ```{r}
+#devtools::install_github("guiastrennec/ggplus")
+library(ggplus)
 
 pdf("wiregrassCharts.pdf")
 
@@ -129,5 +131,85 @@ facet_multiple(plot = perGrassPlot,
                scales = "free")
 
 
+```
+
+
+
+## Pine Seedlings Coded
+
+```{r}
+seedlings <- read_csv("data/pineSeedlingsOnly.csv")
+seedlings %>%
+  mutate(MONYEAR = as.character(MONYEAR)) 
+```
+
+
+```{r}
+
+#devtools::install_github("guiastrennec/ggplus")
+library(ggplus)
+
+pdf("PineSeedlingsCats.pdf")
+
+
+pineSeedlingsCats <-  
+ggplot(seedlings, aes(MONYEAR, STEMS)) +
+  geom_line(aes(group = 1), size = 0.5, color = '#54524d') +
+  geom_point() +
+  theme_bw() +
+  labs(
+    title = "Pine seedlings per plot",
+    subtitle = "cODED (1 = 1-5 seedlings; 2 = 6-20 seedlings; 3 > 20 seedlings ",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Year",
+    y = "Stem count category" ) 
+
+facet_multiple(plot = pineSeedlingsCats, 
+               facets = 'BP', 
+               ncol = 1, 
+               nrow = 3,
+               scales = "free")
+```
+
+
+## Pine Seedlings RAW
+
+```{r}
+seedlings <- read_csv("data/pineSeedlingsOnly.csv")
+seedlings %>%
+  mutate(MONYEAR = as.character(MONYEAR)) 
+
+
+seedlings2012 <- seedlings %>%
+  filter(MONYEAR > 2011)
+
+```
+
+
+```{r}
+
+#devtools::install_github("guiastrennec/ggplus")
+library(ggplus)
+
+pdf("PineSeedlingsRAW.pdf")
+
+
+pineSeedlingsRaw <-  
+ggplot(seedlings, aes(MONYEAR, STEMSraw)) +
+  geom_line(aes(group = 1), size = 0.5, color = '#54524d') +
+  geom_point() +
+  theme_bw() +
+  labs(
+    title = "Pine seedlings per plot",
+    subtitle = "Raw counts, 2012-2020",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Year",
+    y = "Stem count" ) 
+
+facet_multiple(plot = pineSeedlingsRaw, 
+               facets = 'BP', 
+               ncol = 1, 
+               nrow = 3,
+               scales = "free")
 ```
 
