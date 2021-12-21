@@ -5,14 +5,12 @@ navbar:
   left:
   - text: This site
     href: index.html
+  - text: Seedlings
+    href: seedlings.html
   - text: Pine Data
     href: pineData.html
   - text: Pine Charts
     href: pine.html
-  - text: Grouped Pine
-    href: groupedPine.html
-  - text: Seedlings
-    href: seedlings.html
   - text: Herb Data
     href: herbData.html
   - text: Perennial Grass Charts

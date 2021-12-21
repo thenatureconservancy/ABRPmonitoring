@@ -2,7 +2,9 @@
 title: "Perinnieal grass charts"
 author: "The Nature Conservancy's LANDFIRE team"
 date: "7/13/2021"
-output: html_document
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
 ---
 
 

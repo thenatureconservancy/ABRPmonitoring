@@ -33,7 +33,7 @@ The cleaned Pine data is served up below.
 <br>
 
 ```{r pineDT, echo=FALSE, message=FALSE, warning=FALSE}
-pine <- read_csv("data/pine.csv")
+pine <- read_csv("data/pineAll.csv")
 
 datatable(pine,
   extensions = 'Buttons', options = list(

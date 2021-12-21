@@ -1,8 +1,10 @@
 ---
 title: "Seedlings"
-author: "The Nature Conservancy's LANDFIRE team"
+author: "rswaty"
 date: "12/21/2021"
-output: html_document
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
 ---
 
 
