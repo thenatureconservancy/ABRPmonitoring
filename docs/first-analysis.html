@@ -338,16 +338,19 @@ div.tocify {
   <a href="seedlings.html">Seedlings</a>
 </li>
 <li>
+  <a href="groupedPine">Grouped Pine</a>
+</li>
+<li>
   <a href="pineData.html">Pine Data</a>
 </li>
 <li>
   <a href="pine.html">Pine Charts</a>
 </li>
 <li>
-  <a href="herbData.html">Herb Data</a>
+  <a href="herbData.html">Grass Data</a>
 </li>
 <li>
-  <a href="herb.html">Perennial Grass Charts</a>
+  <a href="herb.html">Grass Charts</a>
 </li>
 <li>
   <a href="LANDFIRE.html">LANDFIRE maps</a>
@@ -397,7 +400,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-12-21
+<strong>Last updated:</strong> 2021-12-22
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -488,16 +491,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrswatyABRPwebtree30b389e9a588516dd57e88c29f3239e7244c721atargetblank30b389ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rswaty/ABRPweb/tree/30b389e9a588516dd57e88c29f3239e7244c721a" target="_blank">30b389e</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrswatyABRPwebtreecf15759fa902f3aca51496ff6cfc05f0a8506efctargetblankcf15759a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rswaty/ABRPweb/tree/cf15759fa902f3aca51496ff6cfc05f0a8506efc" target="_blank">cf15759</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrswatyABRPwebtree30b389e9a588516dd57e88c29f3239e7244c721atargetblank30b389ea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrswatyABRPwebtreecf15759fa902f3aca51496ff6cfc05f0a8506efctargetblankcf15759a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rswaty/ABRPweb/tree/30b389e9a588516dd57e88c29f3239e7244c721a" target="_blank">30b389e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rswaty/ABRPweb/tree/cf15759fa902f3aca51496ff6cfc05f0a8506efc" target="_blank">cf15759</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -506,9 +509,14 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rproj.user/
 
+Untracked files:
+    Untracked:  pineWOseedlingsPlotStems.pdf
+
 Unstaged changes:
-    Modified:   PineSeedlingsCats.pdf
-    Deleted:    analysis/groupedPine.Rmd
+    Modified:   archive/tryMakePDFcharts.Rmd
+    Deleted:    data/groupedPineNoPBH.csv
+    Deleted:    groupedPineStemCharts.pdf
+    Deleted:    groupedPineStemCharts1.pdf
 
 </code></pre>
 <p>
@@ -547,6 +555,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rswaty/ABRPweb/dd5f69b2a09b329fa91c29997f753007ed23c295/docs/first-analysis.html" target="_blank">dd5f69b</a>
+</td>
+<td>
+rswaty
+</td>
+<td>
+2021-12-21
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
