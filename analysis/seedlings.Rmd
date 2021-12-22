@@ -71,7 +71,7 @@ seedlingsExplore
 ```
 
 
-# Seedlings per BP over time
+# Coded seedlings per BP over time
 
 
  Number of stems per size class category.  To view limited number of plots select from dropdown, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/pineSeedlingCats.pdf). 
@@ -108,7 +108,7 @@ bscols(widths = c(5, 12),
 ```
 
 
-# Seedling counts, 2012-2020
+# Raw seedling counts, 2012-2020
 
 ```{r meanSeedlings2012-2020, echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=10, fig.height=7}
 

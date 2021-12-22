@@ -213,3 +213,86 @@ facet_multiple(plot = pineSeedlingsRaw,
                scales = "free")
 ```
 
+## Make pine charts without seedlings
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+
+pine <- read_csv("data/pineALL.csv")
+pine %>%
+  mutate(MONYEAR = as.character(MONYEAR))
+
+#remove seedlings from base dataset
+pineWOseedlings <- pine %>%
+      filter(`SIZE(noCM)` != "SEEDLING")
+```
+
+```{r}
+library(ggplus)
+
+pdf("pineWOseedlingsPlotStems.pdf")
+
+
+pineWOseedlingsPlotStems <-  
+ggplot(pineWOseedlings, aes(MONYEAR, STEMS, color = SIZE, group = BP)) +
+  geom_line(size=1.5, position = position_jitter(width = 0.0001, height = 1.0)) +
+  geom_point() +
+  theme_bw() +
+  labs(
+    title = "Pine stems per plot",
+    subtitle = "Including size class",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Monitoring Year",
+    y = "Number of stems" ) +
+  scale_color_simpsons()
+
+facet_multiple(plot = pineWOseedlingsPlotStems, 
+               facets = 'BP', 
+               ncol = 1, 
+               nrow = 3,
+               scales = "free")
+
+
+```
+
+
+# GROUPED PINE
+
+
+
+```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR, viridis)
+
+
+groupedPine <- read_csv("data/pineAll.csv")%>%
+      filter(`SIZE(noCM)` != "SEEDLING")
+                
+```
+
+```{r}
+library(ggplus)
+
+pdf("groupedPineStems.pdf")
+
+groupedPinePlotStems <-  
+ggplot(sdSumsGroupedPine, aes(MONYEAR, sumSTEMS, color = GROUPS, group = GROUPS)) +
+  geom_line(size=1.5, position = position_jitter(width = 0.0001, height = 1.0)) +
+  geom_point() +
+  theme_bw() +
+  labs(
+    title = "",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Monitoring Year",
+    y = "Number of stems",
+    color = "Grouped Stem Size (in CM)") + 
+  scale_color_viridis(discrete = TRUE, option = "D")
+
+facet_multiple(plot = groupedPinePlotStems, 
+               facets = 'BP', 
+               ncol = 1, 
+               nrow = 3,
+               scales = "free")
+
+```
+
+
