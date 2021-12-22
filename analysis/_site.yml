@@ -7,13 +7,15 @@ navbar:
     href: index.html
   - text: Seedlings
     href: seedlings.html
+  - text: Grouped Pine
+    href: groupedPine
   - text: Pine Data
     href: pineData.html
   - text: Pine Charts
     href: pine.html
-  - text: Herb Data
+  - text: Grass Data
     href: herbData.html
-  - text: Perennial Grass Charts
+  - text: Grass Charts
     href: herb.html
   - text: LANDFIRE maps
     href: LANDFIRE.html

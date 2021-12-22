@@ -16,6 +16,8 @@ theme_set(theme_bw())
 ## This page...
 On this page several ways to explore patterns in Pine stems are presented.  Some are interactive; all will take a bit of time to digest and interpret.  There are over 5,280 observations from 57 plots that occurred from 1995-2020.
 
+Except as noted charts do not include seedlings!
+
 
 ## Number of pine stems per plot variable with high of 512 (BP 7_8, 2017)
 
@@ -26,13 +28,17 @@ On this page several ways to explore patterns in Pine stems are presented.  Some
 pine <- read_csv("data/pineALL.csv")
 pine %>%
   mutate(MONYEAR = as.character(MONYEAR))
+
+#remove seedlings from base dataset
+pineWOseedlings <- pine %>%
+      filter(`SIZE(noCM)` != "SEEDLING")
 ```
 
 
 ```{r numStems, echo=FALSE, message=FALSE, warning=FALSE}
 
 stemsExplore <-
-  pine %>%
+  pineWOseedlings %>%
   ggplot(aes(x = MONYEAR, y = STEMS, group = MONYEAR, fill = MONYEAR)) +
   geom_boxplot(position = position_dodge(width = 0.9)) +
   geom_point(position = position_jitterdodge(seed = 1, dodge.width = 0.9)) +
@@ -60,15 +66,14 @@ stemsExplore
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
 
-groupedPine <- pine %>%
+meanPineWOseedlings <- pineWOseedlings %>%
   group_by(PRES,  SIZE,  MONYEAR)%>%
   summarise(meanSTEMS = mean(STEMS))
 ```
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-stemsSizeYear <-groupedPine %>%
-
+stemsSizeYear <-meanPineWOseedlings  %>%
  ggplot(aes(x= MONYEAR, y= meanSTEMS, group = SIZE, color = SIZE)) +
   geom_line(size=1.5) +
   geom_point(size =  2.0) +
@@ -97,20 +102,22 @@ stemsSizeYear
 
 
 
-## Number of stems per size class category.  To view limited number of plots select from dropdown, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/pineStemCharts.pdf). 
+## Number of stems per size class category.  To view limited number of plots select from dropdown, 
+
+
+FIX or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/pineStemCharts.pdf). 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
 #make shared data for crosstalk
-sdPine <- highlight_key(pine)
+sdpineWOseedlings <- highlight_key(pineWOseedlings)
 
 ```
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=8}
-pinePlotStems <-  
-ggplot(sdPine, aes(MONYEAR, STEMS, color = SIZE, group = BP)) +
+pineWOseedlingsPlotStems <-  
+ggplot(sdpineWOseedlings, aes(MONYEAR, STEMS, color = SIZE, group = BP)) +
   geom_line(size=1.5, position = position_jitter(width = 0.0001, height = 1.0)) +
-
   geom_point() +
   theme_bw() +
   labs(
@@ -122,13 +129,55 @@ ggplot(sdPine, aes(MONYEAR, STEMS, color = SIZE, group = BP)) +
   scale_color_simpsons()
 
 bscols(widths = c(5, 12),
-       filter_select("BP", "Plot:", sdPine, ~ BP),
-       ggplotly(pinePlotStems)
+       filter_select("BP", 
+                     "Plot:", 
+                     sdpineWOseedlings, 
+                     ~ BP,
+                     multiple = FALSE),
+       ggplotly(pineWOseedlingsPlotStems)
 )
 
 ```
 
-## Stems compared to plots in BU 5
+
+
+## Heatmap Charts 
+
+These charts compare number of stems per BU_P to the mean number of stems for BU 5.  Notes about the charts:
+
+* Oranges and Reds = fewer stems than mean of stems for BU 5; Greens = more stems than mean of stems for BU 5
+* Only shows years where there were counts for BU5 and specific BU_P.
+* Ranges are arbitrary, selected by Randy Swaty.  Pay special attention to negatives, and the 0-20 category.  It may be that we need to adjust ranges.
+* All the charts are available for download.  Click this [link](https://github.com/rswaty/ABRPweb/raw/master/pineHeatmaps.zip) to download a .zip file.  The file will be automatically downloaded, probably to your "Downloads" folder.
+* BPs from Burn Unit 22 and BP 40-10 are missing from charts presumably due to there not being counts for the matching years. 
+
+
+```{r slickRImages, message=FALSE, warning=FALSE, include=FALSE}
+
+pineImages <- c("heatmapA2.png", 
+                "heatmapB2.png",
+                "heatmapC2.png",
+                "heatmapD2.png",
+                "heatmapE2.png",
+                "heatmapF2.png",
+                "heatmapG2.png",
+                "heatmapH2.png",
+                "heatmapI2.png",
+                "heatmapJ2.png")
+
+```
+
+
+
+```{r slickR, echo=FALSE, message=FALSE, warning=FALSE}
+
+pineSlick <- slickR(obj = pineImages, height=550, width='120%') 
+pineSlick
+
+```
+
+
+## Stems compared to plots in BU 5-INCLUDES SEEDLINGS
 
 ```{r vsBU5data, message=FALSE, warning=FALSE, include=FALSE}
 
@@ -165,45 +214,6 @@ stemsSizeYearBU <-
 
 ggplotly(stemsSizeYearBU)
 ```
-
-
-
-## Heatmap Charts 
-
-These charts compare number of stems per BU_P to the mean number of stems for BU 5.  Notes about the charts:
-
-* Oranges and Reds = fewer stems than mean of stems for BU 5; Greens = more stems than mean of stems for BU 5
-* Only shows years where there were counts for BU5 and specific BU_P.
-* Ranges are arbitrary, selected by Randy Swaty.  Pay special attention to negatives, and the 0-20 category.  It may be that we need to adjust ranges.
-* All the charts are available for download.  Click this [link](https://github.com/rswaty/ABRPweb/raw/master/pineHeatmaps.zip) to download a .zip file.  The file will be automatically downloaded, probably to your "Downloads" folder.
-* BPs from Burn Unit 22 and BP 40-10 are missing from charts presumably due to there not being counts for the matching years. 
-
-
-```{r slickRImages, message=FALSE, warning=FALSE, include=FALSE}
-
-pineImages <- c("heatmapA2.png", 
-                "heatmapB2.png",
-                "heatmapC2.png",
-                "heatmapD2.png",
-                "heatmapE2.png",
-                "heatmapF2.png",
-                "heatmapG2.png",
-                "heatmapH2.png",
-                "heatmapI2.png",
-                "heatmapJ2.png",
-                "heatmapSeedlings2.png")
-
-```
-
-
-
-```{r slickR, echo=FALSE, message=FALSE, warning=FALSE}
-
-pineSlick <- slickR(obj = pineImages, height=550, width='120%') 
-pineSlick
-
-```
-
 
 
 

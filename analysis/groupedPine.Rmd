@@ -1,0 +1,120 @@
+---
+title: "Grouped Pine Data"
+author: "The Nature Conservancy's LANDFIRE team"
+date: "12/13/2021"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR, viridis)
+
+
+groupedPine <- read_csv("data/pineAll.csv")%>%
+      filter(`SIZE(noCM)` != "SEEDLING")
+                
+```
+
+# This page...
+Has charts of pine data grouped into 4 categories (on charts, measurements in CM) as a way of summarizing and easing interpretation.  Note, colors are different from other charts to hopefully prevent confusion.
+
+**Seedlings not included in data**
+
+
+
+## Summary Chart-line of groups over time
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+
+meanGroupedPine <- groupedPine %>%
+  group_by(PRES,  GROUPS,  MONYEAR)%>%
+  summarise(meanSTEMS = mean(STEMS))
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=11}
+stemsSizeYear <-meanGroupedPine %>%
+
+ ggplot(aes(x= MONYEAR, y= meanSTEMS, group = GROUPS, color = GROUPS)) +
+  geom_line(size=1.5) +
+  geom_point(size =  2.0) +
+
+  # My top color palette
+  
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE)  +
+
+  # Theme
+  theme_bw() +
+
+
+  # Update the labels of the axes
+  labs(x = "Year",
+       y = "Mean number of stems per year at ABRP",
+       title = "",
+       caption = "Data from Florida Chapter",
+       color = "Grouped Stem Size (in CM)")  +
+
+  #Adjust the axes
+  theme(plot.title = element_text(face="bold", size =20),
+        axis.title.x = element_text(face="bold", size = 20),
+        axis.title.y = element_text(face="bold", size = 20),
+        legend.title = element_text(face="bold", size = 20)) 
+
+stemsSizeYear
+
+
+```
+
+
+<br>
+
+## Selectable Grouped Pine Chart
+
+## Number of stems per size class category.  To view limited number of plots select from dropdown, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/groupedPineStemCharts.pdf). 
+
+GET SUMS PER GROUP
+
+```{r}
+sumsGroupedPine <- groupedPine %>%
+  group_by(PRES,  GROUPS,  MONYEAR, BP)%>%
+  summarise(sumSTEMS = sum(STEMS))
+```
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+#make shared data for crosstalk
+sdSumsGroupedPine <- highlight_key(sumsGroupedPine)
+
+```
+
+
+```{r selectable pine groups, echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=11}
+groupedPinePlotStems <-  
+ggplot(sdSumsGroupedPine, aes(MONYEAR, sumSTEMS, color = GROUPS, group = GROUPS)) +
+  geom_line(size=1.5, position = position_jitter(width = 0.0001, height = 1.0)) +
+  geom_point() +
+  theme_bw() +
+  labs(
+    title = "",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Monitoring Year",
+    y = "Number of stems",
+    color = "Grouped Stem Size (in CM)") + 
+  scale_color_viridis(discrete = TRUE, option = "D")
+
+
+bscols(widths = c(5, 12),
+       filter_select("BP", 
+                     "Plot:", 
+                     sdSumsGroupedPine, 
+                     ~ BP,
+                     multiple = FALSE),
+       ggplotly(groupedPinePlotStems)
+)
+```
+
