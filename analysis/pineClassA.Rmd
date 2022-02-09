@@ -1,0 +1,124 @@
+---
+title: "pineClassA"
+author: "rswaty"
+date: "2022-02-09"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+
+```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR)
+theme_set(theme_bw(base_size = 16))
+```
+
+
+
+## This page...
+On this page several ways to explore patterns in class A pine seedlings are presented.  
+
+
+## Pine class A data table
+### Data Table
+The cleaned Pine data is served up below.  
+
+<br>
+
+```{r pineDT, echo=FALSE, message=FALSE, warning=FALSE}
+classA <- read_csv("data/pineClassAonly.csv")
+
+datatable(classA,
+  extensions = 'Buttons', options = list(
+    dom = 'Bfrtip',
+    buttons = 
+      list('copy', 'print', list(
+        extend = 'collection',
+        buttons = c('csv', 'excel', 'pdf'),
+        text = 'Download'))))
+```
+
+<br>
+
+
+## Pine class A stems summarized
+
+<br>
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+
+#install.packages('Rmisc')
+library(Rmisc)
+
+
+classA %>%
+  mutate(MONYEAR = as.character(MONYEAR)) 
+
+classAse <- summarySE(classA, measurevar = 'STEMS', groupvars = "MONYEAR")
+```
+
+
+```{r meanSeedlings, echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=10, fig.height=7}
+
+
+
+classAexplore <-
+  classAse %>%
+  ggplot(aes(x = MONYEAR, y = STEMS)) +
+  geom_errorbar(aes(ymin=STEMS-se, ymax=STEMS+se), width = 0.2, color = '#9c9991', size = 0.8) +
+  geom_line(size = 1.0, color = '#54524d') +
+  geom_point() +
+  geom_smooth(method=lm) +
+  labs(x = "Year",
+       y = "Stem count code",
+       title = "Mean class A per year",
+       subtitle = "Trend line fitted with linear model, level of confidence (SE) = 0.95",
+       caption = "Data from Florida Chapter")  +
+
+  #Adjust the axes, remove legend
+  theme(legend.position = "none",
+        plot.title = element_text(face="bold"),
+        axis.title.x = element_text(face="bold"),
+        axis.title.y = element_text(face="bold"))
+
+classAexplore 
+
+
+```
+
+
+# Class A per BP over time
+
+MAKE PDF AND CHECK LINK
+Number of stems per size class category.  To view one plot at a time select from drop down below, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/find/master). 
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+#make shared data for crosstalk
+sdclassA <- highlight_key(classA)
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=8}
+pineClassA <-  
+ggplot(sdclassA , aes(MONYEAR, STEMS)) +
+  geom_line(aes(group = 1), size = 0.5, color = '#54524d') +
+  geom_point() +
+  labs(
+    title = "Pine class A per BU-Plot",
+    subtitle = "Including size class",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Year",
+    y = "Stem count code" ) 
+
+bscols(widths = c(5, 12),
+       filter_select("BP", 
+                     "Plot:", 
+                     sdclassA, 
+                     ~ BP,
+                     multiple = FALSE),
+       ggplotly(pineClassA)
+)
+
+```
+

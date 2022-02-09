@@ -11,7 +11,7 @@ editor_options:
 
 ```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
 pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR, viridis)
-
+theme_set(theme_bw(base_size = 16))
 
 groupedPine <- read_csv("data/pineAll.csv")%>%
       filter(`SIZE(noCM)` != "SEEDLING")
@@ -36,22 +36,15 @@ meanGroupedPine <- groupedPine %>%
 ```
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=11}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=10, fig.height=7}
 stemsSizeYear <-meanGroupedPine %>%
 
  ggplot(aes(x= MONYEAR, y= meanSTEMS, group = GROUPS, color = GROUPS)) +
   geom_line(size=1.5) +
   geom_point(size =  2.0) +
-
   # My top color palette
-  
   scale_color_viridis(discrete = TRUE, option = "D")+
   scale_fill_viridis(discrete = TRUE)  +
-
-  # Theme
-  theme_bw() +
-
-
   # Update the labels of the axes
   labs(x = "Year",
        y = "Mean number of stems per year at ABRP",
@@ -60,10 +53,10 @@ stemsSizeYear <-meanGroupedPine %>%
        color = "Grouped Stem Size (in CM)")  +
 
   #Adjust the axes
-  theme(plot.title = element_text(face="bold", size =20),
-        axis.title.x = element_text(face="bold", size = 20),
-        axis.title.y = element_text(face="bold", size = 20),
-        legend.title = element_text(face="bold", size = 20)) 
+  theme(plot.title = element_text(face="bold"),
+        axis.title.x = element_text(face="bold"),
+        axis.title.y = element_text(face="bold"),
+        legend.title = element_text(face="bold")) 
 
 stemsSizeYear
 
@@ -75,11 +68,11 @@ stemsSizeYear
 
 ## Selectable Grouped Pine Chart
 
-## Number of stems per size class category.  To view limited number of plots select from dropdown, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/groupedPineStemCharts.pdf). 
+## Sum of stems per size class category by plot.  To view a plot select from dropdown, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/groupedPineStems.pdf). 
 
 GET SUMS PER GROUP
 
-```{r}
+```{r sum grouped pine, message=FALSE, warning=FALSE, include=FALSE}
 sumsGroupedPine <- groupedPine %>%
   group_by(PRES,  GROUPS,  MONYEAR, BP)%>%
   summarise(sumSTEMS = sum(STEMS))
