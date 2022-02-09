@@ -258,8 +258,6 @@ facet_multiple(plot = pineWOseedlingsPlotStems,
 
 # GROUPED PINE
 
-
-
 ```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
 pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR, viridis)
 
@@ -295,4 +293,40 @@ facet_multiple(plot = groupedPinePlotStems,
 
 ```
 
+
+## Class A Pine
+
+```{r}
+classA <- read_csv("data/pineClassAonly.csv") %>%
+  mutate(MONYEAR = as.character(MONYEAR)) 
+```
+
+
+```{r}
+
+library(ggplus)
+
+pdf("classAstems.pdf")
+
+pineClassA <-  
+ggplot(classA , aes(MONYEAR, STEMS)) +
+  geom_line(aes(group = 1), size = 0.5, color = '#54524d') +
+  geom_point() +
+  labs(
+    title = "Pine class A per BU-Plot",
+    subtitle = "Only Class Adev",
+    caption = "Data from TNC's Florida Chapter",
+    x = "Year",
+    y = "Stem count code" ) 
+
+
+
+
+facet_multiple(plot = pineClassA, 
+               facets = 'BP', 
+               ncol = 1, 
+               nrow = 3,
+               scales = "free")
+
+```
 
