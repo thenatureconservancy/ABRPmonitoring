@@ -7,6 +7,8 @@ navbar:
     href: index.html
   - text: Seedlings
     href: seedlings.html
+  - text: Class A pine
+    href: pineClassA.html
   - text: Grouped Pine
     href: groupedPine
   - text: Pine Data
