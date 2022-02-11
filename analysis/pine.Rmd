@@ -1,6 +1,6 @@
 ---
 title: "Pine Charts"
-author: "rswaty"
+author: "The Nature Conservancy"
 date: "2021-07-06"
 output: workflowr::wflow_html
 editor_options:
@@ -13,7 +13,9 @@ pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, gg
 theme_set(theme_bw(base_size = 16))
 ```
 
-## This page...
+## Kept for postarity
+This page has all of the original pine data and charts.  We advise focusing on the other pine pages first as there were changes in methogology, grouping and other notable alterations to the data that should be understood before trying to interpret these charts.  
+
 On this page several ways to explore patterns in Pine stems are presented.  Some are interactive; all will take a bit of time to digest and interpret.  There are over 5,280 observations from 57 plots that occurred from 1995-2020.
 
 Except as noted charts do not include seedlings!

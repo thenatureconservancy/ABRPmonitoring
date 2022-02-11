@@ -1,6 +1,6 @@
 ---
 title: "Perinnieal grass charts"
-author: "The Nature Conservancy's LANDFIRE team"
+author: "The Nature Conservancy"
 date: "7/13/2021"
 output: workflowr::wflow_html
 editor_options:
