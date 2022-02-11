@@ -20,7 +20,7 @@ In general the aim of Phase 1 for ABRP is to get the data wrangled and to provid
 4. Website with downloadable code
 
 ## Pine Data Wrangling
-* worked from data delivered by Beatriz [ABRP_bioplots_1995-2018](https://tnc.box.com/s/elj2a00eq374a8vjho9i0hx0v6utdg12)
+* worked from data delivered by Beatriz **ABRP_bioplots_1995-2018**
 * added "B-P" column, concatenated BU and Plot numbers to generate unique value for charts
 * added MONYEAR and LASTBURNYEAR columns for charts (also, some burns only had years recorded).  Used "text to columns" tool in Excel with "/" as the delimiter to create new YEAR-based columns where possible.  Manually entered years for many records.
 * Bull-dozing happened (instead of fire?) for MONYEAR 2007, B-Ps 7_8, 7_7, 7_6, and 7_4.  Did not transfer this information to LASTBURNYEAR (but is is in LASTBURN column). Swaty did not want to mix numerical and text data types in the LASTBURNYEAR column.
@@ -36,18 +36,21 @@ In general the aim of Phase 1 for ABRP is to get the data wrangled and to provid
 ## Pine Data 
 There are multiple files with "pine" in the name.  Most were for charts.
 
-1. [pine.csv](https://tnc.box.com/s/dpco8ijqnlibvda0wdyuwoaqmzcic8ga) **main pine dataset.**  Raw, but note processing steps above.  Some data deleted.  
+1. pine.csv **main pine dataset.**  Raw, but note processing steps above.  Some data deleted.  
 2. for comparing stem counts to reference sites (BU 5)
-    * [averagePineStemsBU](https://tnc.box.com/s/qtnq70ypf9nujsupb5bx3rbn1sfie6z5)
-    * [pineBU5all](https://tnc.box.com/s/o1a5abi8pk2n1v04fprf1i36lkllil24)
-    * [pineStemsBU5average](https://tnc.box.com/s/7mp042a9e3ogrhdnvy55h4px2o6abqxi) (intermediate dataset. Not used in charts.)
+    * averagePineStemsBU
+    * pineBU5all
+    * pineStemsBU5average
 3. For heatmaps
-    * [pineDiverge](https://tnc.box.com/s/oz95kdyg4a1yi84nz7ahqsfkp62con7g) (intermediate dataset. Not used in charts.)
-    * [fiveStems](https://tnc.box.com/s/uuybgj4bnyj41vkmxeieyw7irw68ujhh) (intermediate dataset. Not used in charts.)
-    * [comparePineClean](https://tnc.box.com/s/tthovx8jlvhrfzx8hofffb85hz5oko93) (intermediate dataset. Not used in charts.)
+    * pineDiverge (intermediate dataset. Not used in charts.)
+    * fiveStems (intermediate dataset. Not used in charts.)
+    * comparePineClean 
     
-## Grouped Pine Data
-David and Chaz provided a grouping scheme.  This was added to the pine data as a new columm, then due to time was formatted for the final [groupedPine](https://tnc.box.com/s/tk6evuux2zzud2a28mzfvx2zkz5gz1oq) dataset. 
+## Grouping of Pine Data
+David and Chaz provided a grouping scheme.  This was added to the pine data as a new columm, then due to time was formatted for the final dataset. 
+
+## Datasets with names pineClassAonly, pineSeedlingsOnly, pineNoBPH were taken from the pineAll.csv by filtering, copy/paste
+
 
 ## Wiregrass data wrangling
 In general worked with ABRP_bioplots_1995-2018 herb tab, then saved that to herb.WU.csv.  Wiregrass (perGrass.csv) data is a refinement of herb data. 
@@ -66,10 +69,10 @@ In general worked with ABRP_bioplots_1995-2018 herb tab, then saved that to herb
     
 ## Wiregrass (perinnieal grass) datasets:
 
-* [pergrass.csv](https://tnc.box.com/s/38aozohz7kchw9ezgs8mh402lke7e1yn) **main wiregrass dataset.**  Raw, but note processing steps above.  Some data deleted. 
-* [herbWU.csv](https://tnc.box.com/s/ttwl42fiyh9ertv17txb9bq9d4o6wkqu) spreadsheet for working up the wiregrass data
+* pergrass.csv **main wiregrass dataset.**  Raw, but note processing steps above.  Some data deleted. 
+* herbWU.csv spreadsheet for working up the wiregrass data
 
-* Beatriz provided additional cleaning.  Her notes and cleaned data are in an Excel file named [Copy of Herbaceous data - BPA](https://tnc.box.com/s/tk6evuux2zzud2a28mzfvx2zkz5gz1oq).  This data replaced all other data and was pasted into other herb datasets.
+* Beatriz provided additional cleaning.  Her notes and cleaned data are in an Excel file named [Copy of Herbaceous data - BPA.  This data replaced all other data and was pasted into other herb datasets.
 
 
 

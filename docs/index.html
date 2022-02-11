@@ -414,16 +414,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrswatyABRPwebtreef571b0fec95048977591f6747b90e7ff9da59f70targetblankf571b0fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rswaty/ABRPweb/tree/f571b0fec95048977591f6747b90e7ff9da59f70" target="_blank">f571b0f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrswatyABRPwebtree41682515665b95bd9c727b3f989f46ab651f78e4targetblank4168251a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rswaty/ABRPweb/tree/41682515665b95bd9c727b3f989f46ab651f78e4" target="_blank">4168251</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrswatyABRPwebtreef571b0fec95048977591f6747b90e7ff9da59f70targetblankf571b0fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrswatyABRPwebtree41682515665b95bd9c727b3f989f46ab651f78e4targetblank4168251a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rswaty/ABRPweb/tree/f571b0fec95048977591f6747b90e7ff9da59f70" target="_blank">f571b0f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rswaty/ABRPweb/tree/41682515665b95bd9c727b3f989f46ab651f78e4" target="_blank">4168251</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -432,14 +432,13 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rproj.user/
 
-Untracked files:
-    Untracked:  ABRP-wiregrass.jpg
-    Untracked:  analysis/ABRP-wiregrass.jpg
-
 Unstaged changes:
+    Modified:   analysis/groupedPine.Rmd
     Modified:   analysis/index.Rmd
     Modified:   analysis/pineClassA.Rmd
-    Modified:   toDoNotes.Rmd
+    Modified:   analysis/pineData.Rmd
+    Modified:   analysis/seedlings.Rmd
+    Modified:   archive/tryMakePDFcharts.Rmd
 
 </code></pre>
 <p>
@@ -478,6 +477,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/rswaty/ABRPweb/blob/08bf8d1226011984b135b555ae38117a689525ae/analysis/index.Rmd" target="_blank">08bf8d1</a>
+</td>
+<td>
+rswaty
+</td>
+<td>
+2022-02-11
+</td>
+<td>
+finishing up
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rswaty/ABRPweb/08bf8d1226011984b135b555ae38117a689525ae/docs/index.html" target="_blank">08bf8d1</a>
+</td>
+<td>
+rswaty
+</td>
+<td>
+2022-02-11
+</td>
+<td>
+finishing up
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -843,10 +876,14 @@ Start workflowr project.
 </div>
 </div>
 <p>This website contains the cleaned long-term monitoring datasets, basic exploratory charts, LANDFIRE maps and documentation for the <a href="https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/apalachicola-bluffs-and-ravines-preserve/">Apalachicola Bluffs and Ravines Preserve</a>.</p>
-<p><br></p>
-<p><img src="ABRP-wiregrass.jpg" width="35%" style="float:right; padding:20px" style="display: block; margin: auto;" /></p>
 <div id="goals" class="section level2">
 <h2>Goals</h2>
+<div class="figure" style="text-align: center">
+<img src="ABRP-wiregrass.jpg" alt="Photo by David Printiss" width="35%" style="float:right; padding:20px" />
+<p class="caption">
+Photo by David Printiss
+</p>
+</div>
 <p>The overall goal of this project was to organize and explore the long-term monitoring data so that the Florida chapter could:</p>
 <ul>
 <li>assess future monitoring needs</li>
@@ -858,14 +895,14 @@ Start workflowr project.
 <div id="deliverables-include" class="section level2">
 <h2>Deliverables include:</h2>
 <ul>
-<li>cleaned datasets (download this <a href="https://github.com/rswaty/ABRPweb/raw/master/dataDoc.pdf">document</a> for links to data)</li>
+<li>cleaned data sets (download this <a href="https://github.com/rswaty/ABRPweb/raw/master/dataDoc.pdf">document</a> for links to data)</li>
 <li>charts of
 <ul>
 <li>pine stem counts over time by size class, separate chart per Burn Unit-Plot. See all charts on Pine Charts page.</li>
 <li>wiregrass percent cover over time, separate chart per Burn Unit-Plot. See all charts on Perennial Grass Charts page.</li>
 </ul></li>
 <li>LANDFIRE maps</li>
-<li><em>this website</em> mostly created as a sandbox and for learning/teaching by the developer. Also serves as additional documentation and contains code for data processing and charts. Click “Source Code” button to get all datasets and code.</li>
+<li><em>this draft website</em> which was mostly created as a sandbox and for learning/teaching by the developer. Also serves as additional documentation and contains code for data processing and charts. Click “Source Code” button to get all datasets and code.</li>
 </ul>
 </div>
 <div id="people-who-contributed-to-current-work" class="section level2">
@@ -877,12 +914,6 @@ Start workflowr project.
 <li>Kris Serbesoff-King</li>
 <li>Laura Roncal</li>
 <li>Randy Swaty</li>
-</ul>
-</div>
-<div id="people-who-contributed-to-data-collection-from-datasheets-may-not-be-inclusive" class="section level2">
-<h2>People who contributed to data collection (from datasheets; may not be inclusive)</h2>
-<ul>
-<li>Doria and other person who did previous analysis (link to)</li>
 </ul>
 <br>
 <p>

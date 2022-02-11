@@ -1,12 +1,12 @@
 ---
-title: "pineData"
+title: "Pine Data-All"
 author: "rswaty"
 date: "2021-07-31"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
-## Pine Data
+## Pine Data-all raw pine data
 
 
 ### Data cleaning notes

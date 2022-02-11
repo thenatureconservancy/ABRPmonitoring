@@ -1,27 +1,53 @@
 ---
-title: "Grouped Pine Data"
-author: "The Nature Conservancy's LANDFIRE team"
+title: "Grouped Pine"
+author: "The Nature Conservancy"
 date: "12/13/2021"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
 
+# Grouped pine data and charts
+Pine data was grouped as follows:
 
+* B-C-D (2.6 - 15 cm)
+* E-F-G (15.1 - 30 cm)
+* H-I-J (30.1-40+ cm)
+* Pre-breast height (0 - 2.5cm)
+
+
+Note, colors are different from other charts to hopefully prevent confusion.
+
+**Seedlings not included in data**
 
 ```{r pineChartsSetup, message=FALSE, warning=FALSE, include=FALSE}
 pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, ggforce, slickR, viridis)
 theme_set(theme_bw(base_size = 16))
 
+# get data and remove seedlings
 groupedPine <- read_csv("data/pineAll.csv")%>%
       filter(`SIZE(noCM)` != "SEEDLING")
                 
 ```
 
-# This page...
-Has charts of pine data grouped into 4 categories (on charts, measurements in CM) as a way of summarizing and easing interpretation.  Note, colors are different from other charts to hopefully prevent confusion.
+### Data Table
+The cleaned Pine data for class A is served up below.  
 
-**Seedlings not included in data**
+<br>
+
+```{r pineDT, echo=FALSE, message=FALSE, warning=FALSE}
+
+datatable(groupedPine,
+  extensions = 'Buttons', options = list(
+    dom = 'Bfrtip',
+    buttons = 
+      list('copy', 'print', list(
+        extend = 'collection',
+        buttons = c('csv', 'excel', 'pdf'),
+        text = 'Download'))))
+```
+
+<br>
 
 
 
@@ -66,11 +92,11 @@ stemsSizeYear
 
 <br>
 
-## Selectable Grouped Pine Chart
+## Grouped pine stems per Burn Unit-Plot
 
-## Sum of stems per size class category by plot.  To view a plot select from dropdown, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/groupedPineStems.pdf). 
+ To view a plot select from dropdown, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/groupedPineStems.pdf). 
 
-GET SUMS PER GROUP
+
 
 ```{r sum grouped pine, message=FALSE, warning=FALSE, include=FALSE}
 sumsGroupedPine <- groupedPine %>%

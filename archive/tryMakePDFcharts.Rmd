@@ -159,7 +159,7 @@ ggplot(seedlings, aes(MONYEAR, STEMS)) +
   theme_bw() +
   labs(
     title = "Pine seedlings per plot",
-    subtitle = "cODED (1 = 1-5 seedlings; 2 = 6-20 seedlings; 3 > 20 seedlings ",
+    subtitle = "Coded (1 = 1-5 seedlings; 2 = 6-20 seedlings; 3 > 20 seedlings) ",
     caption = "Data from TNC's Florida Chapter",
     x = "Year",
     y = "Stem count category" ) 

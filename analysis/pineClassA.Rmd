@@ -1,6 +1,6 @@
 ---
-title: "pineClassA"
-author: "rswaty"
+title: "Pines Class A"
+author: "The Nature Conservancy"
 date: "2022-02-09"
 output: workflowr::wflow_html
 editor_options:
@@ -13,15 +13,11 @@ pacman::p_load(tidyverse, ggsci, ggtext, readr, dplyr, DT, crosstalk, plotly, gg
 theme_set(theme_bw(base_size = 16))
 ```
 
+## Pine class A data 
+The data and charts below present a subset of the pine data for Class A (0-2.5cm). 
 
-
-## This page...
-On this page several ways to explore patterns in class A pine seedlings are presented.  
-
-
-## Pine class A data table
 ### Data Table
-The cleaned Pine data is served up below.  
+The cleaned Pine data for class A is served up below.  
 
 <br>
 
@@ -87,10 +83,9 @@ classAexplore
 ```
 
 
-# Class A per BP over time
+# Class A per Burn Unit-Plot over time
 
-MAKE PDF AND CHECK LINK
-Number of stems per size class category.  To view one plot at a time select from drop down below, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/classAstems.pdf). 
+To view one plot at a time select from drop down below, or download compiled PDF [here](https://github.com/rswaty/ABRPweb/raw/master/classAstems.pdf). 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
 #make shared data for crosstalk

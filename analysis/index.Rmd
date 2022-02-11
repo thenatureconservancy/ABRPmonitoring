@@ -10,12 +10,8 @@ editor_options:
 This website contains the cleaned long-term monitoring datasets, basic exploratory charts, LANDFIRE maps and documentation for the [Apalachicola Bluffs and Ravines Preserve](https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/apalachicola-bluffs-and-ravines-preserve/).  
 
 
-```{r photo, echo=FALSE, message=FALSE, warning=FALSE, out.extra='style="float:right; padding:20px"', out.width = "35%"}
-knitr::include_graphics("ABRP-wiregrass.jpg")
-```
-
-
 ## Goals
+
 The overall goal of this project was to organize and explore the long-term monitoring data so that the Florida chapter could:
 
 * assess future monitoring needs
@@ -26,12 +22,12 @@ Plus have LANDFIRE data-based maps for landscape context.
 
 ## Deliverables include:
 
-* cleaned data sets (download this [document](https://github.com/rswaty/ABRPweb/raw/master/dataDoc.pdf) for links to data)
+* cleaned data sets (uploaded to this [Box folder](https://tnc.box.com/s/dxuc1z646svvlkswcp3sp2ii75w8dk9l))
 * charts of
-    * pine stem counts over time by size class, separate chart per Burn Unit-Plot.  See all charts on Pine Charts page.
+    * pine stem counts over time by size class, separate chart per Burn Unit-Plot.  Pine data split into seedlings, class A, grouped and all. 
     * wiregrass percent cover over time, separate chart per Burn Unit-Plot. See all charts on Perennial Grass Charts page. 
 * LANDFIRE maps
-* *this website* which was mostly created as a sandbox and for learning/teaching by the developer.  Also serves as additional documentation and contains code for data processing and charts.  Click "Source Code" button to get all datasets and code. 
+* *this draft website* which was mostly created as a sandbox and for learning/teaching by the developer.  Also serves as additional documentation and contains code for data processing and charts.  Click "Source Code" button to get all datasets and code. 
 
 ## People who contributed to current work
 
@@ -41,6 +37,8 @@ Plus have LANDFIRE data-based maps for landscape context.
 * Kris Serbesoff-King
 * Laura Roncal
 * Randy Swaty
+
+
 
 
 
