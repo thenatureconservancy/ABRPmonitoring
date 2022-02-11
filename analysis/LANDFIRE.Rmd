@@ -1,6 +1,6 @@
 ---
-title: "LANDFIRE"
-author: "rswaty"
+title: "LANDFIRE Maps"
+author: "The Nature Conservancy"
 date: "2021-03-23"
 output: workflowr::wflow_html
 editor_options:
