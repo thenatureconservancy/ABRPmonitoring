@@ -10,7 +10,7 @@ navbar:
   - text: Class A pine
     href: pineClassA.html
   - text: Grouped Pine
-    href: groupedPine
+    href: groupedPine.html
   - text: Pine Data
     href: pineData.html
   - text: Pine Charts

@@ -23,6 +23,7 @@ Plus have LANDFIRE data-based maps for landscape context.
 ## Deliverables include:
 
 * cleaned data sets (uploaded to this [Box folder](https://tnc.box.com/s/dxuc1z646svvlkswcp3sp2ii75w8dk9l))
+* some documentation of data work, located [here](https://github.com/rswaty/ABRPweb/raw/master/dataDoc.pdf)
 * charts of
     * pine stem counts over time by size class, separate chart per Burn Unit-Plot.  Pine data split into seedlings, class A, grouped and all. 
     * wiregrass percent cover over time, separate chart per Burn Unit-Plot. See all charts on Perennial Grass Charts page. 
