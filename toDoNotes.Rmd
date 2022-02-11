@@ -47,7 +47,7 @@ FROM Jan 2022:
     * showing entire time period by frequency class COMPLETE
     * showing 2012 to date by stem count COMPLETE
 2. Class A tab
-3. All other size classes (B and greater)  ASKED KRIS IF THIS IS GROUPED PINE OR PINE CHARTS (would need to pull something)(FEB 9)
+3. All other size classes (B and greater)  ASKED KRIS IF THIS IS GROUPED PINE OR PINE CHARTS (would need to pull something)(FEB 9) YES GROUPED PINE!
 
 
 

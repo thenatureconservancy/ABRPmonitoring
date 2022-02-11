@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "Monitoring data for Apalachicola Bluffs and Ravines Preserve"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
@@ -7,8 +7,13 @@ output:
 editor_options:
   chunk_output_type: console
 ---
+This website contains the cleaned long-term monitoring datasets, basic exploratory charts, LANDFIRE maps and documentation for the [Apalachicola Bluffs and Ravines Preserve](https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/apalachicola-bluffs-and-ravines-preserve/).  
 
-Contains the cleaned long-term monitoring datasets, basic exploratory charts, LANDFIRE maps and documentation for the [Apalachicola Bluffs and Ravines Preserve](https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/apalachicola-bluffs-and-ravines-preserve/).  
+
+```{r photo, echo=FALSE, message=FALSE, warning=FALSE, out.extra='style="float:right; padding:20px"', out.width = "35%"}
+knitr::include_graphics("ABRP-wiregrass.jpg")
+```
+
 
 ## Goals
 The overall goal of this project was to organize and explore the long-term monitoring data so that the Florida chapter could:
@@ -21,12 +26,12 @@ Plus have LANDFIRE data-based maps for landscape context.
 
 ## Deliverables include:
 
-* cleaned datasets (download this [document](https://github.com/rswaty/ABRPweb/raw/master/dataDoc.pdf) for links to data)
+* cleaned data sets (download this [document](https://github.com/rswaty/ABRPweb/raw/master/dataDoc.pdf) for links to data)
 * charts of
     * pine stem counts over time by size class, separate chart per Burn Unit-Plot.  See all charts on Pine Charts page.
     * wiregrass percent cover over time, separate chart per Burn Unit-Plot. See all charts on Perennial Grass Charts page. 
 * LANDFIRE maps
-* *this website* mostly created as a sandbox and for learning/teaching by the developer.  Also serves as additional documentation and contains code for data processing and charts.  Click "Source Code" button to get all datasets and code. 
+* *this website* which was mostly created as a sandbox and for learning/teaching by the developer.  Also serves as additional documentation and contains code for data processing and charts.  Click "Source Code" button to get all datasets and code. 
 
 ## People who contributed to current work
 
@@ -37,9 +42,6 @@ Plus have LANDFIRE data-based maps for landscape context.
 * Laura Roncal
 * Randy Swaty
 
-## People who contributed to data collection (from datasheets; may not be inclusive)
-
-* Doria and other person who did previous analysis (link to)
 
 
 
