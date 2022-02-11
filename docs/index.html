@@ -263,7 +263,7 @@ $(document).ready(function () {
   <a href="pineClassA.html">Class A pine</a>
 </li>
 <li>
-  <a href="groupedPine">Grouped Pine</a>
+  <a href="groupedPine.html">Grouped Pine</a>
 </li>
 <li>
   <a href="pineData.html">Pine Data</a>
@@ -305,7 +305,7 @@ $(document).ready(function () {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -314,7 +314,7 @@ $(document).ready(function () {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -326,7 +326,7 @@ $(document).ready(function () {
 <strong>Last updated:</strong> 2022-02-11
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>ABRPweb/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -342,88 +342,28 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrswatyABRPwebtreeb5d057bea29526ec6270bbe7ed52e304c6d62ee0targetblankb5d057ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rswaty/ABRPweb/tree/b5d057bea29526ec6270bbe7ed52e304c6d62ee0" target="_blank">b5d057b</a> </a>
 </p>
 </div>
-<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20210616code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20210616)</code> </a>
-</p>
-</div>
-<div id="strongSeedstrongcodesetseed20210616code" class="panel-collapse collapse">
-<div class="panel-body">
-<p>The command <code>set.seed(20210616)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
-</p>
-</div>
-<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
-</p>
-</div>
-<div id="strongCachestrongnone" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
-</p>
-</div>
-<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrswatyABRPwebtree41682515665b95bd9c727b3f989f46ab651f78e4targetblank4168251a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rswaty/ABRPweb/tree/41682515665b95bd9c727b3f989f46ab651f78e4" target="_blank">4168251</a> </a>
-</p>
-</div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrswatyABRPwebtree41682515665b95bd9c727b3f989f46ab651f78e4targetblank4168251a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrswatyABRPwebtreeb5d057bea29526ec6270bbe7ed52e304c6d62ee0targetblankb5d057ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rswaty/ABRPweb/tree/41682515665b95bd9c727b3f989f46ab651f78e4" target="_blank">4168251</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rswaty/ABRPweb/tree/b5d057bea29526ec6270bbe7ed52e304c6d62ee0" target="_blank">b5d057b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -431,14 +371,6 @@ Note that you need to be careful to ensure that all relevant files for the analy
 <pre><code>
 Ignored files:
     Ignored:    .Rproj.user/
-
-Unstaged changes:
-    Modified:   analysis/groupedPine.Rmd
-    Modified:   analysis/index.Rmd
-    Modified:   analysis/pineClassA.Rmd
-    Modified:   analysis/pineData.Rmd
-    Modified:   analysis/seedlings.Rmd
-    Modified:   archive/tryMakePDFcharts.Rmd
 
 </code></pre>
 <p>
@@ -477,6 +409,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/rswaty/ABRPweb/blob/b5d057bea29526ec6270bbe7ed52e304c6d62ee0/analysis/index.Rmd" target="_blank">b5d057b</a>
+</td>
+<td>
+rswaty
+</td>
+<td>
+2022-02-11
+</td>
+<td>
+getting close
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/rswaty/ABRPweb/blob/0caf51483298b52f43b939a33bb51d2f423d3360/analysis/index.Rmd" target="_blank">0caf514</a>
+</td>
+<td>
+rswaty
+</td>
+<td>
+2022-02-11
+</td>
+<td>
+still finishing up
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rswaty/ABRPweb/0caf51483298b52f43b939a33bb51d2f423d3360/docs/index.html" target="_blank">0caf514</a>
+</td>
+<td>
+rswaty
+</td>
+<td>
+2022-02-11
+</td>
+<td>
+still finishing up
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -878,12 +861,6 @@ Start workflowr project.
 <p>This website contains the cleaned long-term monitoring datasets, basic exploratory charts, LANDFIRE maps and documentation for the <a href="https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/apalachicola-bluffs-and-ravines-preserve/">Apalachicola Bluffs and Ravines Preserve</a>.</p>
 <div id="goals" class="section level2">
 <h2>Goals</h2>
-<div class="figure" style="text-align: center">
-<img src="ABRP-wiregrass.jpg" alt="Photo by David Printiss" width="35%" style="float:right; padding:20px" />
-<p class="caption">
-Photo by David Printiss
-</p>
-</div>
 <p>The overall goal of this project was to organize and explore the long-term monitoring data so that the Florida chapter could:</p>
 <ul>
 <li>assess future monitoring needs</li>
@@ -895,10 +872,11 @@ Photo by David Printiss
 <div id="deliverables-include" class="section level2">
 <h2>Deliverables include:</h2>
 <ul>
-<li>cleaned data sets (download this <a href="https://github.com/rswaty/ABRPweb/raw/master/dataDoc.pdf">document</a> for links to data)</li>
+<li>cleaned data sets (uploaded to this <a href="https://tnc.box.com/s/dxuc1z646svvlkswcp3sp2ii75w8dk9l">Box folder</a>)</li>
+<li>some documentation of data work, located <a href="https://github.com/rswaty/ABRPweb/raw/master/dataDoc.pdf">here</a></li>
 <li>charts of
 <ul>
-<li>pine stem counts over time by size class, separate chart per Burn Unit-Plot. See all charts on Pine Charts page.</li>
+<li>pine stem counts over time by size class, separate chart per Burn Unit-Plot. Pine data split into seedlings, class A, grouped and all.</li>
 <li>wiregrass percent cover over time, separate chart per Burn Unit-Plot. See all charts on Perennial Grass Charts page.</li>
 </ul></li>
 <li>LANDFIRE maps</li>
@@ -915,43 +893,6 @@ Photo by David Printiss
 <li>Laura Roncal</li>
 <li>Randy Swaty</li>
 </ul>
-<br>
-<p>
-<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
-<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
-</button>
-</p>
-<div id="workflowr-sessioninfo" class="collapse">
-<pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.1.2 (2021-11-01)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 19043)
-
-Matrix products: default
-
-locale:
-[1] LC_COLLATE=English_United States.1252 
-[2] LC_CTYPE=English_United States.1252   
-[3] LC_MONETARY=English_United States.1252
-[4] LC_NUMERIC=C                          
-[5] LC_TIME=English_United States.1252    
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-loaded via a namespace (and not attached):
- [1] Rcpp_1.0.8       rstudioapi_0.13  whisker_0.4      knitr_1.37      
- [5] magrittr_2.0.2   workflowr_1.7.0  R6_2.5.1         rlang_1.0.1     
- [9] fastmap_1.1.0    fansi_1.0.2      highr_0.9        stringr_1.4.0   
-[13] tools_4.1.2      xfun_0.29        utf8_1.2.2       cli_3.1.1       
-[17] git2r_0.29.0     jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2  
-[21] rprojroot_2.0.2  yaml_2.2.2       digest_0.6.29    tibble_3.1.6    
-[25] lifecycle_1.0.1  crayon_1.4.2     later_1.3.0      sass_0.4.0      
-[29] vctrs_0.3.8      promises_1.2.0.1 fs_1.5.2         glue_1.6.1      
-[33] evaluate_0.14    rmarkdown_2.11   stringi_1.7.6    bslib_0.3.1     
-[37] compiler_4.1.2   pillar_1.7.0     jsonlite_1.7.3   httpuv_1.6.5    
-[41] pkgconfig_2.0.3 </code></pre>
-</div>
 </div>
 
 
